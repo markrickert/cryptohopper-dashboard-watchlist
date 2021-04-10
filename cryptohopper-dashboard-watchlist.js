@@ -26,6 +26,7 @@ var transparency = {
 
 // You can add and remove items from this list at will or change around the colors.
 // I have only tested font awesome icons (with the prefix "fa-").
+// You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
 var WATCHLIST_STATUSES = {
   "fa-star-o": "transparent", // this is the default, outlined star.
   "fa-star-half": "#FEEFB3" + transparency.light,
