@@ -6,7 +6,7 @@ You can remove all watchlist statuses by clicking the `X` at the top of the new 
 
 # ⚠️ Security implications: ⚠️
 
-> This is a script that manipulates elements on a site while you are logged in to a site that deals with cryptocurrency. Please read and unserstand what the code is doing before you run it!
+> This is a script that manipulates elements on a financial site while you are logged in. Please read and unserstand what the code is doing before you run it!
 
 # Example:
 
