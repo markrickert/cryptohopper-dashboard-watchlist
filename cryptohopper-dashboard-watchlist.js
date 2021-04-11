@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.1
+// @version      0.2
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -14,32 +14,62 @@
 // @grant        GM_deleteValue
 // ==/UserScript==
 
-var WATCHLIST_CSS_PREFIX = "watchlist_"; // s we know which columns are ours
-var CURRENCY_TABLE = "table:contains('Currency'):contains('Result')"; // this will select any table we want to target with the watchlist.
+/**
+ * USER TOGGLE SETTINGS:
+ */
 
-// just some color variable modifiers
-var transparency = {
-  light: "4D",
-  lighter: "33",
-  lightest: "1A",
-};
+// When enabled, will add a green or red target icon next to the currency
+// in your positions list when the hopper returns targeting results.
+var ENABLE_POSITION_TARGETS = true;
 
 // You can add and remove items from this list at will or change around the colors.
 // I have only tested font awesome icons (with the prefix "fa-").
 // You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
 var WATCHLIST_STATUSES = {
   "fa-star-o": "transparent", // this is the default, outlined star.
-  "fa-star-half": "#FEEFB3" + transparency.light,
+  "fa-star-half": "#FEEFB34D",
   "fa-star": "#FEEFB3",
-  "fa-rocket": "#DFF2BF" + transparency.lighter,
-  "fa-heart-o": "#FFBABA" + transparency.light,
+  "fa-rocket": "#DFF2BF33",
+  "fa-heart-o": "#FFBABA4d",
   "fa-heart": "#FFBABA",
   "fa-question-circle": "#d9edf7",
   "fa-exclamation-circle": "#DFF2BF",
-  "fa-bitcoin": "#FEEFB3" + transparency.lightest,
+  "fa-bitcoin": "#FEEFB31A",
   "fa-trash": "#FFBABA",
   "fa-reddit-alien": "#FEEFB3",
 };
+
+/**
+ * Application
+ * Please read through this and understand what it is doing before running.
+ */
+
+var WATCHLIST_CSS_PREFIX = "watchlist_"; // s we know which columns are ours
+var CURRENCY_TABLE = "table:contains('Currency'):contains('Result')"; // this will select any table we want to target with the watchlist.
+
+// This function listens for network requests and intercepts the target list to turn their icon on and off.
+function watchTargets() {
+  $(document).ajaxComplete(function (event, xhr, settings) {
+    var response = JSON.parse(xhr.responseText);
+    if (response.data) {
+      var { current_sells, new_target } = response.data;
+
+      $(".watchlist-target").hide().removeClass("text-danger text-success");
+
+      if (current_sells && current_sells.length > 0) {
+        var all_sells = current_sells.split(",");
+        all_sells.map((coin) => {
+          $(`.watchlist-target-${coin}`).addClass("text-danger").show();
+        });
+      }
+      if (new_target && new_target.length > 0) {
+        new_target.map((coin) => {
+          $(`.watchlist-target-${coin}`).addClass("text-success").show();
+        });
+      }
+    }
+  });
+}
 
 // Adds our own styles to the page. Just do this once.
 function initScript() {
@@ -55,11 +85,19 @@ function initScript() {
         color: #D8000C !important;
     }
   `);
+
+  // Start watching for targets
+  if (ENABLE_POSITION_TARGETS) {
+    watchTargets();
+  }
 }
 
 function initApp() {
-  createColumn();
+  createWatchlistColumn();
   refreshColors();
+  if (ENABLE_POSITION_TARGETS) {
+    createTargetsDomElements();
+  }
 }
 
 /**
@@ -109,7 +147,17 @@ function createWatchButton(coin) {
   return td.append(link);
 }
 
-function createColumn() {
+function createTargetsDomElements() {
+  $(CURRENCY_TABLE + " tr a strong").each((i, symbol) => {
+    $(
+      `<i class="watchlist-target watchlist-target-${symbol.innerText} md md-gps-fixed" style="margin-left: 3px"></i>`
+    )
+      .hide()
+      .insertAfter(symbol);
+  });
+}
+
+function createWatchlistColumn() {
   // Ads the "watch" title to the table.
   var th = $(
     '<th align="center" aria-controls="" rowspan="1" colspan="1" style="padding-right: 8px;width: 8px;"></th>'

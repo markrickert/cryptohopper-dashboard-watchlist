@@ -28,4 +28,5 @@ All of the icons and colors can be customized in the script. Feel free to modify
 # Roadmap:
 
 1. Clean up the code a bit and comment it better.
-2. Add trend indicators to positions.
+3. Add trend indicators to positions.
+2. An overlay interface that allows you to customize status icons/colors.
