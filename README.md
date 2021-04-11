@@ -2,7 +2,17 @@
 
 This is a small userscript that runs in your browser extension adding the ability to "watch" certain coins in your dashboard easier by assigning an icon and changing the background color. This allows you to track each coin over multiple hoppers with ease.
 
-You can remove all watchlist statuses by clicking the `X` at the top of the new column on the left of the dashboard.
+## Features:
+
+### Watchlist
+
+* Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard.
+* Clear individual coin watches by cycling through the list.
+* Clear all watchlist colors by clicking the `X` at the top of the new watchlist column.
+
+### Current Buy/Sell Targets
+
+* Puts a target icon next to each currency symbol when it is on the target buy/sell list for easier tracking of what the bot is recommending to buy or sell.
 
 # ⚠️ Security implications: ⚠️
 
@@ -14,12 +24,13 @@ You can remove all watchlist statuses by clicking the `X` at the top of the new 
 
 # Installation:
 
-1. Read and understand that this script is doing.
+1. Read and understand exactly what this script is doing.
 2. Install a userscript extension in your browser like [TamperMonkey](https://www.tampermonkey.net/).
 3. Click on the Tampermonkey browser extension and select `Create a new script...`
 4. Copy the script in this repository and paste it into the new user script.
 5. Save the new user script.
 6. Navigate to your Cryptohopper dashboard.
+7. 🤖💰🚀🌖
 
 # Editing the script's behavior:
 
@@ -28,5 +39,6 @@ All of the icons and colors can be customized in the script. Feel free to modify
 # Roadmap:
 
 1. Clean up the code a bit and comment it better.
-3. Add trend indicators to positions.
-2. An overlay interface that allows you to customize status icons/colors.
+2. Add trend indicators to positions.
+3. An overlay interface that allows you to customize status icons/colors.
+4. Make it look nicer in dark mode.
