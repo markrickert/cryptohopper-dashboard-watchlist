@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 /**
- * USER TOGGLE SETTINGS:
+ * USER TOGGLABLE SETTINGS:
  */
 
 // When enabled, will add a green or red target icon next to the currency
@@ -46,6 +46,7 @@ var WATCHLIST_STATUSES = {
 
 var WATCHLIST_CSS_PREFIX = "watchlist_"; // s we know which columns are ours
 var CURRENCY_TABLE = "table:contains('Currency'):contains('Result')"; // this will select any table we want to target with the watchlist.
+var classes = Object.keys(WATCHLIST_STATUSES);
 
 // This function listens for network requests and intercepts the target list to turn their icon on and off.
 function watchTargets() {
@@ -71,9 +72,20 @@ function watchTargets() {
   });
 }
 
+// Inserts a little target icon right after the currency symbol in the table.
+function createTargetsDomElements() {
+  $(CURRENCY_TABLE + " tr a strong").each((i, symbol) => {
+    $(
+      `<i class="watchlist-target watchlist-target-${symbol.innerText} md md-gps-fixed" style="margin-left: 3px"></i>`
+    )
+      .hide()
+      .insertAfter(symbol);
+  });
+}
+
 // Adds our own styles to the page. Just do this once.
 function initScript() {
-  Object.keys(WATCHLIST_STATUSES).map((cl, i) => {
+  classes.map((cl, i) => {
     GM_addStyle(`
       .${WATCHLIST_CSS_PREFIX}${cl} {
           background-color: ${WATCHLIST_STATUSES[cl]};
@@ -92,6 +104,7 @@ function initScript() {
   }
 }
 
+// Inititalizes the app by creating the watchlist column in the data table and calculating the colors.
 function initApp() {
   createWatchlistColumn();
   refreshColors();
@@ -100,61 +113,68 @@ function initApp() {
   }
 }
 
-/**
- * This completely refreshes the color of all the matching rows to what is set in memory.
- */
+// This completely refreshes the color of all the matching rows to what is set in memory.
 function refreshColors() {
-  var classes = Object.keys(WATCHLIST_STATUSES);
+  var allWatchlist = GM_listValues();
   var watchlistClasses = classes
     .map(function (cl) {
       return WATCHLIST_CSS_PREFIX + cl;
     })
     .join(" ");
-  $(CURRENCY_TABLE + " tbody tr").each(function () {
-    var coin = $(this).find("strong").first();
-    $(this).removeClass(watchlistClasses);
-    if (coin) {
-      $(this).addClass(
-        WATCHLIST_CSS_PREFIX + GM_getValue(coin.text(), classes[0])
-      );
-    }
+  var tableRows = $(CURRENCY_TABLE + " tbody tr");
+  tableRows.removeClass(watchlistClasses);
+
+  allWatchlist.map((currency) => {
+    tableRows
+      .filter(`:contains('${currency}')`)
+      .addClass(WATCHLIST_CSS_PREFIX + GM_getValue(currency, classes[0]));
   });
+}
+
+function refreshIcons() {
+  $(CURRENCY_TABLE + ` tbody tr`)
+    .find(".watchlist-btn")
+    .removeClass(classes.join(" "))
+    .addClass(classes[0]);
+}
+
+// Callback function that runs whenever you press the watchlist button.
+// It will read the coin's setting and cycle to the next one in the list.
+function clickedWatchButton(icon, coin) {
+  var coinValue = GM_getValue(coin, classes[0]);
+
+  var oldClassIndex = classes.indexOf(coinValue);
+  var newClass = classes[oldClassIndex + 1] || classes[0];
+
+  // We want to get all rows and all watchlist buttons and change them all at once.
+  $(CURRENCY_TABLE + ` tbody tr`)
+    // All rows that contain the coin
+    .filter(`:contains('${coin}')`)
+    .each(function () {
+      var row = $(this);
+      var icon = row.find(".watchlist-btn");
+
+      row
+        .removeClass(WATCHLIST_CSS_PREFIX + coinValue)
+        .addClass(WATCHLIST_CSS_PREFIX + newClass);
+      icon.removeClass(coinValue).addClass(newClass);
+    });
+
+  // Save the new coin's watchlist class.
+  GM_setValue(coin, newClass);
 }
 
 function createWatchButton(coin) {
-  var classes = Object.keys(WATCHLIST_STATUSES);
   var td = $("<td class='text-center'></td>");
+  var coinValue = GM_getValue(coin, classes[0]);
   var link = $(`
             <a href="#" id="star_${coin}" class="btn btn-default btn-xs hidden-xs hidden-sm">
-                <i class="fa watchlist-btn ${GM_getValue(
-                  coin,
-                  classes[0]
-                )} text-muted"></i>
+                <i class="fa watchlist-btn ${coinValue} text-muted"></i>
             </a>`).on("click", function (e) {
-    var icon = $(this).find("i");
-    for (var i = 0; i < classes.length; i++) {
-      if (icon.hasClass(classes[i])) {
-        icon.removeClass(classes[i]);
-        var newClass = classes[i + 1] || classes[0];
-        icon.addClass(newClass);
-        GM_setValue(coin, newClass);
-        refreshColors();
-        break;
-      }
-    }
+    clickedWatchButton($(this).find("i"), coin);
   });
 
   return td.append(link);
-}
-
-function createTargetsDomElements() {
-  $(CURRENCY_TABLE + " tr a strong").each((i, symbol) => {
-    $(
-      `<i class="watchlist-target watchlist-target-${symbol.innerText} md md-gps-fixed" style="margin-left: 3px"></i>`
-    )
-      .hide()
-      .insertAfter(symbol);
-  });
 }
 
 function createWatchlistColumn() {
@@ -172,6 +192,7 @@ function createWatchlistColumn() {
         GM_deleteValue(allWatchlist[i]);
       }
       refreshColors();
+      refreshIcons();
     })
     .bind("destroyed", function () {
       setTimeout(() => {
