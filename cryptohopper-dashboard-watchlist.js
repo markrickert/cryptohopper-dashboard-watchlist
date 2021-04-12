@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.4
+// @version      0.5
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -33,8 +33,9 @@ var WATCHLIST_STATUSES = {
   "fa-question-circle": "#ff9500",
   "fa-exclamation-circle": "#5ac7fa",
   "fa-bitcoin": "#FEEFB3",
-  "fa-trash": "#ff3a30",
+  "fa-trash": "#000000",
   "fa-reddit-alien": "#007BFF",
+  "fa-magic": "transparent",
 };
 
 /**
@@ -92,15 +93,17 @@ function initScript() {
   classes.map((cl, i) => {
     GM_addStyle(`
       .${WATCHLIST_CSS_PREFIX}${cl} {
-          background-color: ${WATCHLIST_STATUSES[cl]}33;
+          background-color: ${WATCHLIST_STATUSES[cl]}${
+      WATCHLIST_STATUSES[cl][0] === "#" ? "33" : ""
+    };
       }
     `);
   });
   GM_addStyle(`
-    .${WATCHLIST_CSS_PREFIX}fa-heart .text-danger {
-        color: #D8000C !important;
-    }
-  `);
+      .${WATCHLIST_CSS_PREFIX}fa-magic {
+          background-image: linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 127, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(139, 0, 255, 0.2));
+      }
+    `);
 
   // Start watching for targets
   if (ENABLE_POSITION_TARGETS) {
