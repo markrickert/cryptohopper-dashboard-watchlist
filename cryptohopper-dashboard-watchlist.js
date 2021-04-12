@@ -64,9 +64,13 @@ function watchTargets() {
         });
       }
       if (new_target && new_target.length > 0) {
-        new_target.map((coin) => {
-          $(`.watchlist-target-${coin}`).addClass("text-success").show();
-        });
+        if (typeof new_target === "string") {
+          $(`.watchlist-target-${new_target}`).addClass("text-success").show();
+        } else {
+          new_target.map((coin) => {
+            $(`.watchlist-target-${coin}`).addClass("text-success").show();
+          });
+        }
       }
     }
   });
@@ -74,13 +78,15 @@ function watchTargets() {
 
 // Inserts a little target icon right after the currency symbol in the table.
 function createTargetsDomElements() {
-  $(CURRENCY_TABLE + " tr a strong").each((i, symbol) => {
-    $(
-      `<i class="watchlist-target watchlist-target-${symbol.innerText} md md-gps-fixed" style="margin-left: 3px"></i>`
-    )
-      .hide()
-      .insertAfter(symbol);
-  });
+  $(CURRENCY_TABLE + " tr a strong:not(:has('.watchlist-target'))").each(
+    (i, symbol) => {
+      $(
+        `<i class="watchlist-target watchlist-target-${symbol.innerText} md md-gps-fixed" style="margin-left: 3px"></i>`
+      )
+        .hide()
+        .insertAfter(symbol);
+    }
+  );
 }
 
 // Adds our own styles to the page. Just do this once.
@@ -140,11 +146,11 @@ function refreshIcons() {
 
 // Callback function that runs whenever you press the watchlist button.
 // It will read the coin's setting and cycle to the next one in the list.
-function clickedWatchButton(icon, coin) {
+function clickedWatchButton(icon, coin, reset = false) {
   var coinValue = GM_getValue(coin, classes[0]);
 
   var oldClassIndex = classes.indexOf(coinValue);
-  var newClass = classes[oldClassIndex + 1] || classes[0];
+  var newClass = reset ? classes[0] : classes[oldClassIndex + 1] || classes[0];
 
   // We want to get all rows and all watchlist buttons and change them all at once.
   $(CURRENCY_TABLE + ` tbody tr`)
@@ -170,9 +176,13 @@ function createWatchButton(coin) {
   var link = $(`
             <a href="#" id="star_${coin}" class="btn btn-default btn-xs hidden-xs hidden-sm">
                 <i class="fa watchlist-btn ${coinValue} text-muted"></i>
-            </a>`).on("click", function (e) {
-    clickedWatchButton($(this).find("i"), coin);
-  });
+            </a>`)
+    .on("click", function (e) {
+      clickedWatchButton($(this).find("i"), coin);
+    })
+    .dblclick(function () {
+      clickedWatchButton($(this).find("i"), coin, true);
+    });
 
   return td.append(link);
 }
@@ -188,7 +198,8 @@ function createWatchlistColumn() {
     </a>`)
     .on("click", function (e) {
       var allWatchlist = GM_listValues();
-      for (var i = 0; i < allWatchlist.length; i++) {
+      var allWatchlistLength = allWatchlist.length;
+      for (var i = 0; i < allWatchlistLength; i++) {
         GM_deleteValue(allWatchlist[i]);
       }
       refreshColors();
