@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.3
+// @version      0.2
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -27,16 +27,14 @@ var ENABLE_POSITION_TARGETS = true;
 // You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
 var WATCHLIST_STATUSES = {
   "fa-star-o": "transparent", // this is the default, outlined star.
-  "fa-star-half": "#FEEFB34D",
-  "fa-star": "#FEEFB3",
-  "fa-rocket": "#DFF2BF33",
-  "fa-heart-o": "#FFBABA4d",
-  "fa-heart": "#FFBABA",
-  "fa-question-circle": "#d9edf7",
-  "fa-exclamation-circle": "#DFF2BF",
-  "fa-bitcoin": "#FEEFB31A",
-  "fa-trash": "#FFBABA",
-  "fa-reddit-alien": "#FEEFB3",
+  "fa-star": "#ffcc00",
+  "fa-rocket": "#5856d6",
+  "fa-heart": "#ff2d55",
+  "fa-question-circle": "#ff9500",
+  "fa-exclamation-circle": "#5ac7fa",
+  "fa-bitcoin": "#FEEFB3",
+  "fa-trash": "#ff3a30",
+  "fa-reddit-alien": "#007BFF",
 };
 
 /**
@@ -94,7 +92,7 @@ function initScript() {
   classes.map((cl, i) => {
     GM_addStyle(`
       .${WATCHLIST_CSS_PREFIX}${cl} {
-          background-color: ${WATCHLIST_STATUSES[cl]};
+          background-color: ${WATCHLIST_STATUSES[cl]}33;
       }
     `);
   });
