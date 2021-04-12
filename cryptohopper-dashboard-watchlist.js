@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.2
+// @version      0.4
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -76,7 +76,7 @@ function watchTargets() {
 
 // Inserts a little target icon right after the currency symbol in the table.
 function createTargetsDomElements() {
-  $(CURRENCY_TABLE + " tr a strong:not(:has('.watchlist-target'))").each(
+  $(CURRENCY_TABLE + " tr a:not(:has('.watchlist-target')) strong").each(
     (i, symbol) => {
       $(
         `<i class="watchlist-target watchlist-target-${symbol.innerText} md md-gps-fixed" style="margin-left: 3px"></i>`
