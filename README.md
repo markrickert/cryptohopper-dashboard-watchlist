@@ -4,16 +4,19 @@ This is a small userscript that runs in your browser extension adding the abilit
 
 ## Features:
 
-### Watchlist
-
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard.
 * Clear individual coin watches by cycling through the list.
 * Clear all watchlist colors by clicking the `X` at the top of the new watchlist column.
+* Double-click a watchlist icon to reset the color for that position only.
 * Looks great in light and dark mode!
 
-### Current Buy/Sell Targets
+### Other Small Tweaks:
+
+> All these features are flagged so you can easily turn them off:
 
 * Puts a target icon next to each currency symbol when it is on the target buy/sell list for easier tracking of what the bot is recommending to buy or sell.
+* Removes the column full of checkboxes.
+* Permanently hide hoppie's hand from poking out of the side of the screen.
 
 # ⚠️ Security implications: ⚠️
 

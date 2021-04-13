@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.5
+// @version      0.6
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -22,6 +22,12 @@
 // in your positions list when the hopper returns targeting results.
 var ENABLE_POSITION_TARGETS = true;
 
+// Don't ever use the checkboxes? This option if for you!
+var HIDE_CHECKBOX_COLUMNS = true;
+
+// Removes the annoying image of "hoppie" sticking his arm out from the side of the page.
+var REMOVE_HOPPIE = true;
+
 // You can add and remove items from this list at will or change around the colors.
 // I have only tested font awesome icons (with the prefix "fa-").
 // You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
@@ -32,10 +38,12 @@ var WATCHLIST_STATUSES = {
   "fa-heart": "#ff2d55",
   "fa-question-circle": "#ff9500",
   "fa-exclamation-circle": "#5ac7fa",
-  "fa-bitcoin": "#FEEFB3",
+  "fa-bitcoin":
+    "linear-gradient(to right, rgba(179,143,0, 0.2), rgba(255, 204, 0, 0.2), rgba(179,143,0, 0.2))",
   "fa-trash": "#000000",
   "fa-reddit-alien": "#007BFF",
-  "fa-magic": "transparent",
+  "fa-magic":
+    "linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 127, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(139, 0, 255, 0.2))",
 };
 
 /**
@@ -93,17 +101,19 @@ function initScript() {
   classes.map((cl, i) => {
     GM_addStyle(`
       .${WATCHLIST_CSS_PREFIX}${cl} {
-          background-color: ${WATCHLIST_STATUSES[cl]}${
+          background: ${WATCHLIST_STATUSES[cl]}${
       WATCHLIST_STATUSES[cl][0] === "#" ? "33" : ""
     };
       }
     `);
   });
-  GM_addStyle(`
-      .${WATCHLIST_CSS_PREFIX}fa-magic {
-          background-image: linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 127, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(139, 0, 255, 0.2));
+  if (REMOVE_HOPPIE) {
+    GM_addStyle(`
+      img.hoppie-paperclip {
+        display: none;
       }
     `);
+  }
 
   // Start watching for targets
   if (ENABLE_POSITION_TARGETS) {
@@ -122,6 +132,11 @@ function initApp() {
 
 // This completely refreshes the color of all the matching rows to what is set in memory.
 function refreshColors() {
+  if (HIDE_CHECKBOX_COLUMNS) {
+    $(CURRENCY_TABLE + " thead tr th:has('input')").hide();
+    $(CURRENCY_TABLE + " tbody tr td:has('input')").hide();
+  }
+
   var allWatchlist = GM_listValues();
   var watchlistClasses = classes
     .map(function (cl) {
