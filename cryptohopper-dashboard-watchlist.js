@@ -45,7 +45,7 @@ var WATCHLIST_STATUSES = {
     "linear-gradient(to right, rgba(179,143,0, 0.2), rgba(255, 204, 0, 0.2), rgba(179,143,0, 0.2))",
   "fa-trash": "#000000",
   "fa-reddit-alien":
-    "linear-gradient(-45deg, #ee775233, #e73c7e33, #23a6d533, #23d5ab33); background-size: 400% 400%;animation: gradient 5s ease infinite;",
+    "linear-gradient(-45deg, #ee775233, #e73c7e33, #23a6d533, #23d5ab33);",
   "fa-magic":
     "linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 127, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(139, 0, 255, 0.2))",
 };
@@ -95,15 +95,6 @@ function watchTargets() {
 
 // Adds our own styles to the page. Just do this once.
 function initScript() {
-  // For the animated gradients
-  GM_addStyle(`
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-  `);
-
   // Create the classes for each watchlist key:
   classes.map((cl, i) => {
     GM_addStyle(`
