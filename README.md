@@ -24,7 +24,10 @@ This is a small userscript that runs in your browser extension adding the abilit
 
 # Example:
 
-![Example dashboard with watchlist script.](cryptohopper-example.png)
+Light Mode             |  Dark Mode
+:-------------------------:|:-------------------------:
+![](cryptohopper-example.png)  |  ![](cryptohopper-example-darkmode.png)
+
 
 # Installation:
 
