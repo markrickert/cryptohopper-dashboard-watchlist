@@ -22,6 +22,9 @@
 // in your positions list when the hopper returns targeting results.
 var ENABLE_POSITION_TARGETS = true;
 
+// When enabled, will clear a watch target on doouobleclick.
+var EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR = false;
+
 // Don't ever use the checkboxes? This option if for you!
 var EXPERIMENTAL_HIDE_CHECKBOX_COLUMNS = false;
 
@@ -208,13 +211,14 @@ function createWatchButton(coin) {
   var link = $(`
             <a href="#" id="star_${coin}" class="btn btn-default btn-xs hidden-xs hidden-sm">
                 <i class="fa watchlist-btn ${coinValue} text-muted"></i>
-            </a>`)
-    .on("click", function (e) {
-      clickedWatchButton($(this).find("i"), coin);
-    })
-    .dblclick(function () {
+            </a>`).on("click", function (e) {
+    clickedWatchButton($(this).find("i"), coin);
+  });
+  if (EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR) {
+    link.dblclick(function () {
       clickedWatchButton($(this).find("i"), coin, true);
     });
+  }
 
   return td.append(link);
 }
