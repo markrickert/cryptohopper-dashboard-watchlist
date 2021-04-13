@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.6
+// @version      0.7
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -23,7 +23,7 @@
 var ENABLE_POSITION_TARGETS = true;
 
 // Don't ever use the checkboxes? This option if for you!
-var HIDE_CHECKBOX_COLUMNS = true;
+var EXPERIMENTAL_HIDE_CHECKBOX_COLUMNS = false;
 
 // Removes the annoying image of "hoppie" sticking his arm out from the side of the page.
 var REMOVE_HOPPIE = true;
@@ -62,38 +62,31 @@ function watchTargets() {
     if (response.data) {
       var { current_sells, new_target } = response.data;
 
-      $(".watchlist-target").hide().removeClass("text-danger text-success");
+      var allCoinTds = $(
+        `table.dataTable tr td:has("a[data-target='.chart-modal'] strong")`
+      );
+      allCoinTds.removeClass("target-buy target-sell");
 
       if (current_sells && current_sells.length > 0) {
-        var all_sells = current_sells.split(",");
-        all_sells.map((coin) => {
-          $(`.watchlist-target-${coin}`).addClass("text-danger").show();
+        var sellTargets = current_sells.split(",");
+        allCoinTds.each((i, td) => {
+          if (sellTargets.includes(td.innerText)) {
+            $(td).addClass("target-sell");
+          }
         });
       }
       if (new_target && new_target.length > 0) {
-        if (typeof new_target === "string") {
-          $(`.watchlist-target-${new_target}`).addClass("text-success").show();
-        } else {
-          new_target.map((coin) => {
-            $(`.watchlist-target-${coin}`).addClass("text-success").show();
-          });
-        }
+        var buyTargets =
+          typeof new_target === "string" ? [new_target] : new_target;
+
+        allCoinTds.each((i, td) => {
+          if (buyTargets.includes(td.innerText)) {
+            $(td).addClass("target-buy");
+          }
+        });
       }
     }
   });
-}
-
-// Inserts a little target icon right after the currency symbol in the table.
-function createTargetsDomElements() {
-  $(CURRENCY_TABLE + " tr a:not(:has('.watchlist-target')) strong").each(
-    (i, symbol) => {
-      $(
-        `<i class="watchlist-target watchlist-target-${symbol.innerText} md md-gps-fixed" style="margin-left: 3px"></i>`
-      )
-        .hide()
-        .insertAfter(symbol);
-    }
-  );
 }
 
 // Adds our own styles to the page. Just do this once.
@@ -105,8 +98,34 @@ function initScript() {
       WATCHLIST_STATUSES[cl][0] === "#" ? "33" : ""
     };
       }
+      .${WATCHLIST_CSS_PREFIX}${cl} .text-danger {
+        text-shadow: 0 0 0.25px #000000;
+      }
     `);
   });
+
+  if (ENABLE_POSITION_TARGETS) {
+    GM_addStyle(`
+      table.dataTable tr td.target-buy::after, table.dataTable tr td.target-sell::after {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+
+        font-family:'Material Design Iconic Font';
+        padding-left:3px;
+        font-size: 0.9em;
+        content:"\\f140";
+        color: #06cc98;
+      }
+
+      table.dataTable tr td.target-sell::after {
+        color: #f6887d;
+      }
+    `);
+  }
+
   if (REMOVE_HOPPIE) {
     GM_addStyle(`
       img.hoppie-paperclip {
@@ -125,14 +144,11 @@ function initScript() {
 function initApp() {
   createWatchlistColumn();
   refreshColors();
-  if (ENABLE_POSITION_TARGETS) {
-    createTargetsDomElements();
-  }
 }
 
 // This completely refreshes the color of all the matching rows to what is set in memory.
 function refreshColors() {
-  if (HIDE_CHECKBOX_COLUMNS) {
+  if (EXPERIMENTAL_HIDE_CHECKBOX_COLUMNS) {
     $(CURRENCY_TABLE + " thead tr th:has('input')").hide();
     $(CURRENCY_TABLE + " tbody tr td:has('input')").hide();
   }
