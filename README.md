@@ -22,22 +22,25 @@ This is a small userscript that runs in your browser extension adding the abilit
 
 > This is a script that manipulates elements on a financial site while you are logged in. Please read and unserstand what the code is doing before you run it!
 
-# Example:
+You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
+
+# See it in action!
 
 Light Mode             |  Dark Mode
 :-------------------------:|:-------------------------:
 ![](cryptohopper-example.png)  |  ![](cryptohopper-example-darkmode.png)
-
 
 # Installation:
 
 1. **Read and understand exactly what this script is doing.**
 2. Install a userscript extension in your browser like [TamperMonkey](https://www.tampermonkey.net/).
 3. Click on the Tampermonkey browser extension and select `Create a new script...`
-4. Copy the script in this repository and paste it into the new user script.
+4. Copy the text from the [`cryptohopper-dashboard-watchlist.js`](cryptohopper-dashboard-watchlist.js) file in this repository and paste it into the new user script.
 5. Save the new user script.
 6. Navigate to your Cryptohopper dashboard.
 7. 🤖💰🚀🌖
+8. ...
+9. Check back as it's updated occasionally and compare your version number to what is in this repository.
 
 # Editing the script's behavior:
 
