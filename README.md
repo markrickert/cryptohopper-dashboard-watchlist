@@ -25,7 +25,7 @@ This is a small userscript that runs in your browser extension adding the abilit
 
 # ⚠️ Security implications: ⚠️
 
-> This is a script that manipulates elements on a financial site while you are logged in. Please read and unserstand what the code is doing before you run it!
+> This is a script that manipulates elements on a financial site while you are logged in. Please read and understand what the code is doing before you run it!
 
 You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
 
