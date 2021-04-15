@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.7
+// @version      0.8
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -161,11 +161,15 @@ function refreshColors() {
       return WATCHLIST_CSS_PREFIX + cl;
     })
     .join(" ");
-  var tableRows = $(CURRENCY_TABLE + " tbody tr");
-  tableRows.removeClass(watchlistClasses);
+
+  var allCoinTrs = $(
+    CURRENCY_TABLE + ` tbody tr:has("a[data-target='.chart-modal'] strong")`
+  );
+
+  allCoinTrs.removeClass(watchlistClasses);
 
   allWatchlist.map((currency) => {
-    tableRows
+    allCoinTrs
       .filter(`:contains('${currency}')`)
       .addClass(WATCHLIST_CSS_PREFIX + GM_getValue(currency, classes[0]));
   });
@@ -242,16 +246,17 @@ function createWatchlistColumn() {
     })
     .bind("destroyed", function () {
       setTimeout(() => {
+        // If the X button is destroyed, that means the table refreshed and we need to reapply our columns and colors.
         initApp();
       }, 1000);
     });
 
-  $(CURRENCY_TABLE + ":not(:has('.watchlist-btn')) thead tr").prepend(
-    th.append(link)
-  );
-  $(CURRENCY_TABLE + ":not(:has('.watchlist-btn')) tbody tr").each(function () {
+  // Only add these columns to the main dashboard table, not anywhere else.
+  $(CURRENCY_TABLE + " thead tr")
+    .filter(":contains('Action')")
+    .prepend(th.append(link));
+  $(CURRENCY_TABLE + ":contains('Action') tbody tr").each(function () {
     const coin = $("strong", this).first().text();
-    $(this).data("coin-row", coin);
     $(this).prepend(createWatchButton(coin));
   });
 }

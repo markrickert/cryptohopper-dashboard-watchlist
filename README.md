@@ -2,12 +2,17 @@
 
 This is a small userscript that runs in your browser extension adding the ability to "watch" certain coins in your dashboard easier by assigning an icon and changing the background color. This allows you to track each coin over multiple hoppers with ease.
 
+
+> This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Cryptohopper.com, or any of its subsidiaries or its affiliates.
+
+> The Cryptohopper name as well as related marks, emblems and images are registered trademarks of Cryptohopper.com.
+
 ## Features:
 
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard.
 * Clear individual coin watches by cycling through the list.
 * Clear all watchlist colors by clicking the `X` at the top of the new watchlist column.
-* Double-click a watchlist icon to reset the color for that position only.
+* Double-click a watchlist icon to reset the color for that position only (turned off in the script by default).
 * Looks great in light and dark mode!
 
 ### Other Small Tweaks:
