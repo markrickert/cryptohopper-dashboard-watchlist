@@ -31,9 +31,9 @@ Light Mode             |  Dark Mode
 
 # Installation:
 
-1. **Read and understand exactly what this script is doing.**
+1. [**Read and understand exactly what this script is doing.**](cryptohopper-dashboard-watchlist.user.js)
 2. Install a userscript extension in your browser like [TamperMonkey](https://www.tampermonkey.net/).
-3. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it. You can also click this link: [`cryptohopper-dashboard-watchlist.user.js`](cryptohopper-dashboard-watchlist.user.js).
+3. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it. You can also click this link: [`cryptohopper-dashboard-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js).
 4. Navigate to your Cryptohopper dashboard.
 5. 🤖💰🚀🌖
 6. ...
