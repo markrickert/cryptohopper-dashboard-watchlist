@@ -2,17 +2,12 @@
 
 This is a small userscript that runs in your browser extension adding the ability to "watch" certain coins in your dashboard easier by assigning an icon and changing the background color. This allows you to track each coin over multiple hoppers with ease.
 
-
-> This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Cryptohopper.com, or any of its subsidiaries or its affiliates.
-
-> The Cryptohopper name as well as related marks, emblems and images are registered trademarks of Cryptohopper.com.
-
 ## Features:
 
-* Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard.
-* Clear individual coin watches by cycling through the list.
+* Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard or mark coins that are part of a custom config pool.
+* Clear individual coin watches by cycling through the list in the Open Positions table.
 * Clear all watchlist colors by clicking the `X` at the top of the new watchlist column.
-* Double-click a watchlist icon to reset the color for that position only (turned off in the script by default).
+* Adds row colors to the Last 5 Sells table and the trade history page.
 * Looks great in light and dark mode!
 
 ### Other Small Tweaks:
@@ -40,12 +35,11 @@ Light Mode             |  Dark Mode
 1. **Read and understand exactly what this script is doing.**
 2. Install a userscript extension in your browser like [TamperMonkey](https://www.tampermonkey.net/).
 3. Click on the Tampermonkey browser extension and select `Create a new script...`
-4. Copy the text from the [`cryptohopper-dashboard-watchlist.js`](cryptohopper-dashboard-watchlist.js) file in this repository and paste it into the new user script.
-5. Save the new user script.
-6. Navigate to your Cryptohopper dashboard.
-7. 🤖💰🚀🌖
-8. ...
-9. Check back as it's updated occasionally and compare your version number to what is in this repository.
+4. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it. You can also click this link: [`cryptohopper-dashboard-watchlist.user.js`](cryptohopper-dashboard-watchlist.user.js).
+5. Navigate to your Cryptohopper dashboard.
+6. 🤖💰🚀🌖
+7. ...
+8. You can turn on auto-updates to the script or check back here for new versions.
 
 # Editing the script's behavior:
 
@@ -53,6 +47,12 @@ All of the icons and colors can be customized in the script. Feel free to modify
 
 # Roadmap:
 
-1. Clean up the code a bit and comment it better.
-2. Add trend indicators to positions.
-3. An overlay interface that allows you to customize status icons/colors.
+1. Add trend indicators to positions.
+2. An overlay interface that allows you to customize status icons/colors.
+
+---
+
+> This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Cryptohopper.com, or any of its subsidiaries or its affiliates.
+
+> The Cryptohopper name as well as related marks, emblems and images are registered trademarks of Cryptohopper.com.
+

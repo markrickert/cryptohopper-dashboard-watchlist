@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Cryptohopper
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.8
+// @version      0.9
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
+// @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js
 // @match        https://www.cryptohopper.com/dashboard
 // @match        https://www.cryptohopper.com/trade-history
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
@@ -153,7 +154,6 @@ function initApp() {
 
 // This completely refreshes the color of all the matching rows to what is set in memory.
 function refreshColors() {
-
   var allWatchlist = GM_listValues();
   var watchlistClasses = classes
     .map(function (cl) {
