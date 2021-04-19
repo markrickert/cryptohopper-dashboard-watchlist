@@ -6,6 +6,7 @@
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @match        https://www.cryptohopper.com/dashboard
+// @match        https://www.cryptohopper.com/trade-history
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
 // @grant        GM_addStyle
 // @grant        GM_getValue
@@ -53,40 +54,45 @@ var WATCHLIST_STATUSES = {
  */
 
 var WATCHLIST_CSS_PREFIX = "watchlist_"; // s we know which columns are ours
-var CURRENCY_TABLE = "table:contains('Currency'):contains('Result')"; // this will select any table we want to target with the watchlist.
+var CURRENCY_TABLE = "table:contains('Currency'):contains('Action')";
+var OTHER_TABLES = "table:contains('Currency'):contains('View')";
+var LATEST_TRATES_TABLE = "#datatable-latesttrades";
 var classes = Object.keys(WATCHLIST_STATUSES);
 
 // This function listens for network requests and intercepts the target list to turn their icon on and off.
 function watchTargets() {
   $(document).ajaxComplete(function (event, xhr, settings) {
-    var response = JSON.parse(xhr.responseText);
-    if (response.data) {
-      var { current_sells, new_target } = response.data;
+    refreshColors();
+    try {
+      var response = JSON.parse(xhr.responseText);
+      if (response.data) {
+        var { current_sells, new_target } = response.data;
 
-      var allCoinTds = $(
-        `table.dataTable tr td:has("a[data-target='.chart-modal'] strong")`
-      );
-      allCoinTds.removeClass("target-buy target-sell");
+        var allCoinTds = $(
+          CURRENCY_TABLE + ` tr td:has("a[data-target='.chart-modal'] strong")`
+        );
+        allCoinTds.removeClass("target-buy target-sell");
 
-      if (current_sells && current_sells.length > 0) {
-        var sellTargets = current_sells.split(",");
-        allCoinTds.each((i, td) => {
-          if (sellTargets.includes(td.innerText)) {
-            $(td).addClass("target-sell");
-          }
-        });
+        if (current_sells && current_sells.length > 0) {
+          var sellTargets = current_sells.split(",");
+          allCoinTds.each((i, td) => {
+            if (sellTargets.includes(td.innerText)) {
+              $(td).addClass("target-sell");
+            }
+          });
+        }
+        if (new_target && new_target.length > 0) {
+          var buyTargets =
+            typeof new_target === "string" ? [new_target] : new_target;
+
+          allCoinTds.each((i, td) => {
+            if (buyTargets.includes(td.innerText)) {
+              $(td).addClass("target-buy");
+            }
+          });
+        }
       }
-      if (new_target && new_target.length > 0) {
-        var buyTargets =
-          typeof new_target === "string" ? [new_target] : new_target;
-
-        allCoinTds.each((i, td) => {
-          if (buyTargets.includes(td.innerText)) {
-            $(td).addClass("target-buy");
-          }
-        });
-      }
-    }
+    } catch (e) {}
   });
 }
 
@@ -155,8 +161,13 @@ function refreshColors() {
     })
     .join(" ");
 
+  var trSelector = `tr:has("a[data-target='.chart-modal'] strong")`;
   var allCoinTrs = $(
-    CURRENCY_TABLE + ` tbody tr:has("a[data-target='.chart-modal'] strong")`
+    CURRENCY_TABLE +
+      ` tbody ${trSelector},
+    table#datatable-latesttrades ${trSelector},
+    div#openorders_div table ${trSelector},
+    table#trade_history_table ${trSelector}`
   );
 
   allCoinTrs.removeClass(watchlistClasses);
@@ -202,7 +213,6 @@ function clickedWatchButton(icon, coin, reset = false) {
 }
 
 function createWatchButton(coin) {
-  var td = $("<td class='text-center'></td>");
   var coinValue = GM_getValue(coin, classes[0]);
   var link = $(`
             <a href="#" id="star_${coin}" class="btn btn-default btn-xs hidden-xs hidden-sm">
@@ -216,7 +226,7 @@ function createWatchButton(coin) {
     });
   }
 
-  return td.append(link);
+  return link;
 }
 
 function createWatchlistColumn() {
@@ -245,12 +255,17 @@ function createWatchlistColumn() {
     });
 
   // Only add these columns to the main dashboard table, not anywhere else.
-  $(CURRENCY_TABLE + " thead tr")
-    .filter(":contains('Action')")
-    .prepend(th.append(link));
-  $(CURRENCY_TABLE + ":contains('Action') tbody tr").each(function () {
+  $(CURRENCY_TABLE + " thead th[tabIndex='0']")
+    .first()
+    .empty()
+    .append(link);
+
+  var allCoinTrs = $(
+    CURRENCY_TABLE + ` tr:has("a[data-target='.chart-modal'] strong")`
+  ).each(function () {
     const coin = $("strong", this).first().text();
-    $(this).prepend(createWatchButton(coin));
+    console.log("this", $(this));
+    $("td", this).first().empty().append(createWatchButton(coin));
   });
 }
 
