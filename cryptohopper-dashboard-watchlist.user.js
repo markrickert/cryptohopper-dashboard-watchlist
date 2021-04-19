@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Cryptohopper
+// @name         Cryptohopper Watchlist
 // @namespace    https://www.cryptohopper.com/dashboard
 // @version      0.9
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
