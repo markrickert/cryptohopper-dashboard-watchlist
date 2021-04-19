@@ -25,9 +25,6 @@ var ENABLE_POSITION_TARGETS = true;
 // When enabled, will clear a watch target on doouobleclick.
 var EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR = false;
 
-// Don't ever use the checkboxes? This option if for you!
-var EXPERIMENTAL_HIDE_CHECKBOX_COLUMNS = false;
-
 // Removes the annoying image of "hoppie" sticking his arm out from the side of the page.
 var REMOVE_HOPPIE = true;
 
@@ -150,10 +147,6 @@ function initApp() {
 
 // This completely refreshes the color of all the matching rows to what is set in memory.
 function refreshColors() {
-  if (EXPERIMENTAL_HIDE_CHECKBOX_COLUMNS) {
-    $(CURRENCY_TABLE + " thead tr th:has('input')").hide();
-    $(CURRENCY_TABLE + " tbody tr td:has('input')").hide();
-  }
 
   var allWatchlist = GM_listValues();
   var watchlistClasses = classes
