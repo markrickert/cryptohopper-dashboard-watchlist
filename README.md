@@ -1,6 +1,6 @@
 # cryptohopper-dashboard-watchlist
 
-This is a small userscript that runs in your browser extension adding the ability to "watch" certain coins in your dashboard easier by assigning an icon and changing the background color. This allows you to track each coin over multiple hoppers with ease.
+This is a small userscript that runs in your browser extension adding the ability to "watch" certain coins in your account easier by assigning an icon and changing the background color. This allows you to track each coin over multiple hoppers with ease.
 
 ## Features:
 
@@ -15,7 +15,6 @@ This is a small userscript that runs in your browser extension adding the abilit
 > All these features are flagged so you can easily turn them off:
 
 * Puts a target icon next to each currency symbol when it is on the target buy/sell list for easier tracking of what the bot is recommending to buy or sell.
-* Removes the column full of checkboxes.
 * Permanently hide hoppie's hand from poking out of the side of the screen.
 
 # ⚠️ Security implications: ⚠️
@@ -34,12 +33,11 @@ Light Mode             |  Dark Mode
 
 1. **Read and understand exactly what this script is doing.**
 2. Install a userscript extension in your browser like [TamperMonkey](https://www.tampermonkey.net/).
-3. Click on the Tampermonkey browser extension and select `Create a new script...`
-4. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it. You can also click this link: [`cryptohopper-dashboard-watchlist.user.js`](cryptohopper-dashboard-watchlist.user.js).
-5. Navigate to your Cryptohopper dashboard.
-6. 🤖💰🚀🌖
-7. ...
-8. You can turn on auto-updates to the script or check back here for new versions.
+3. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it. You can also click this link: [`cryptohopper-dashboard-watchlist.user.js`](cryptohopper-dashboard-watchlist.user.js).
+4. Navigate to your Cryptohopper dashboard.
+5. 🤖💰🚀🌖
+6. ...
+7. You can turn on auto-updates to the script or check back here for new versions.
 
 # Editing the script's behavior:
 
