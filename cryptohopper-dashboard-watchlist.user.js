@@ -264,7 +264,6 @@ function createWatchlistColumn() {
     CURRENCY_TABLE + ` tr:has("a[data-target='.chart-modal'] strong")`
   ).each(function () {
     const coin = $("strong", this).first().text();
-    console.log("this", $(this));
     $("td", this).first().empty().append(createWatchButton(coin));
   });
 }
