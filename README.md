@@ -16,6 +16,7 @@ This is a small userscript that runs in your browser extension adding the abilit
 
 * Puts a target icon next to each currency symbol when it is on the target buy/sell list for easier tracking of what the bot is recommending to buy or sell.
 * Permanently hide hoppie's hand from poking out of the side of the screen.
+* Adds a green dotted line in the chart view for where your average buy rate for that position is along with an arrow pointing to the candle at the time you last bought.
 
 # ⚠️ Security implications: ⚠️
 

@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         Cryptohopper Watchlist
 // @namespace    https://www.cryptohopper.com/dashboard
-// @version      0.9
+// @version      0.10
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       Mark Rickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js
 // @match        https://www.cryptohopper.com/dashboard
 // @match        https://www.cryptohopper.com/trade-history
+// @match        https://www.cryptohopper.com/chart/chart.php*
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
 // @grant        GM_addStyle
 // @grant        GM_getValue
@@ -29,6 +30,10 @@ var EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR = false;
 
 // Removes the annoying image of "hoppie" sticking his arm out from the side of the page.
 var REMOVE_HOPPIE = true;
+
+// Puts a green dotted line on all tradingview charts that shows your buy rate
+// and a "buy" indicator where your last purchase was with the average rate.
+var SHOW_BUY_RATE_IN_TRADING_VIEW = true;
 
 // You can add and remove items from this list at will or change around the colors.
 // I have only tested font awesome icons (with the prefix "fa-").
@@ -144,6 +149,37 @@ function initScript() {
   if (ENABLE_POSITION_TARGETS) {
     watchTargets();
   }
+}
+
+function initChartMods() {
+  console.log("initChartMods");
+
+  widget.onChartReady(function () {
+    let buyRate = parseFloat(getParameterByName("buy_rate"));
+    var buyTime = parseInt(getParameterByName("buy_time"));
+    var tpRate = getParameterByName("tp_rate");
+
+    if (buyRate && widget) {
+      widget
+        .chart()
+        .createPositionLine()
+        .setText("Avg Price")
+        .setLineColor("#1BB270")
+        .setQuantity(parseFloat(0))
+        .setLineLength(3)
+        .setPrice(parseFloat(buyRate));
+
+      widget
+        .chart()
+        .createExecutionShape()
+        .setText("BUY")
+        .setTextColor("#1BB270")
+        .setArrowColor("#1BB270")
+        .setDirection("buy")
+        .setTime(buyTime)
+        .setPrice(parseFloat(buyRate));
+    }
+  });
 }
 
 // Inititalizes the app by creating the watchlist column in the data table and calculating the colors.
@@ -268,19 +304,33 @@ function createWatchlistColumn() {
   });
 }
 
+function main() {
+  if (window.location.pathname === "/chart/chart.php") {
+    if (SHOW_BUY_RATE_IN_TRADING_VIEW) {
+      initChartMods();
+    }
+  } else {
+    initScript();
+    initApp();
+  }
+}
+
 (function () {
   "use strict";
-  initScript();
-  initApp();
+  main();
 })();
 
 // jquery function that watches when a DOM element is destrotyed.
-(function ($) {
-  $.event.special.destroyed = {
-    remove: function (o) {
-      if (o.handler) {
-        o.handler();
-      }
-    },
-  };
-})(jQuery);
+if (window.jQuery) {
+  $(document).ready(function () {
+    (function ($) {
+      $.event.special.destroyed = {
+        remove: function (o) {
+          if (o.handler) {
+            o.handler();
+          }
+        },
+      };
+    })(jQuery);
+  });
+}
