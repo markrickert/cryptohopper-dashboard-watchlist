@@ -153,12 +153,12 @@ function initScript() {
     watchTargets();
   }
 
-  // Begin to watch for table updates when on the dashboard page
+  // When the open position table is displayed (on the dashboard page)
   if($('#openPosTableHolder').length) {
     // Add absolute values to the Result column
     if(ADD_ABSOLUTE_RESULT) {
       addAbsoluteResult($('#openPosTableHolder tbody'));
-      watchForTableUpdates(); // Here for now as a placeholder - move out of this if statement when other functions that depend on this observer are added
+      watchForTableUpdates(); // Here for now as a placeholder - move out of this if statement if/when other functions that depend on this observer are added
 
       function reInitAbsoluteResult() {
         var rebindInterval = window.setInterval(function() {
