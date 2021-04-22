@@ -153,8 +153,11 @@ function initScript() {
     watchTargets();
   }
 
-  // Add handling to allow the selection of all open positions by shift+clicking the checkbox for that position
-  if(SELECT_ALL_OPEN_POSITIONS && $('#openPosTableHolder').length) positionSelectionHandler();
+  // When the open position table is displayed (on the dashboard page)
+  if($('#openPosTableHolder').length) {
+    // Add handling to allow the selection of all open positions by shift+clicking the checkbox for that position
+    if(SELECT_ALL_OPEN_POSITIONS) positionSelectionHandler();
+  }
 }
 
 function initChartMods() {
