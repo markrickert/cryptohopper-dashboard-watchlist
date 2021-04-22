@@ -35,6 +35,9 @@ var REMOVE_HOPPIE = true;
 // and a "buy" indicator where your last purchase was with the average rate.
 var SHOW_BUY_RATE_IN_TRADING_VIEW = true;
 
+// Add shift+click functionality for position checkboxes to allow selecting all positions of the same coin/token
+var SELECT_ALL_OPEN_POSITIONS = true;
+
 // You can add and remove items from this list at will or change around the colors.
 // I have only tested font awesome icons (with the prefix "fa-").
 // You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
@@ -149,6 +152,9 @@ function initScript() {
   if (ENABLE_POSITION_TARGETS) {
     watchTargets();
   }
+
+  // Add handling to allow the selection of all open positions by shift+clicking the checkbox for that position
+  if(SELECT_ALL_OPEN_POSITIONS && $('#openPosTableHolder').length) positionSelectionHandler();
 }
 
 function initChartMods() {
@@ -302,6 +308,45 @@ function createWatchlistColumn() {
     const coin = $("strong", this).first().text();
     $("td", this).first().empty().append(createWatchButton(coin));
   });
+}
+
+// Add handling to allow for holding down the shift key while clicking a position checkbox to select all positions of the same coin/token
+function positionSelectionHandler() {
+  var modifierPressed = false;
+
+  $(document).on('keydown keyup', function(e) { modifierPressed = e.shiftKey; });
+
+  function shiftClickHandler(e) {
+    if(modifierPressed && e.originalEvent !== undefined && e.originalEvent.isTrusted) {
+      var checkbox = $(this);
+      var ticker = checkbox.closest('td').next().text();
+      var checked = checkbox.prop("checked");
+
+      // Iterate through each position that has a ticker that matches the ticker for the checkbox we clicked on
+      $('#openPosTableHolder tbody td:contains(' + ticker + ')').closest('tr').find('input[name="bulkselection[]"]').not(checkbox).each(function() {
+        var el = $(this);
+        // Verify that our ticker is an exact match then update its checked value to match the checkbox we clicked
+        if(el.closest('td').next().text() == ticker) el.prop('checked', checked);
+      });
+    }
+  }
+
+  // Bind our event handler
+  $('#openPosTableHolder tbody input[name="bulkselection[]"]').on('click', shiftClickHandler);
+
+  function reInitShiftClickHandler() {
+    var rebindInterval = window.setInterval(function() {
+      var table = $('#openPosTableHolder tbody');
+      if(table.length) {
+        $('#openPosTableHolder tbody input[name="bulkselection[]"]').on('click', shiftClickHandler);
+        table.on('destroyed', reInitShiftClickHandler);
+        window.clearInterval(rebindInterval);
+      }
+    }, 200);
+  }
+
+  // If the table is destroyed, rebind our event handler to the newly recreated elements
+  $('#openPosTableHolder tbody input[name="bulkselection[]"]').on('destroyed', reInitShiftClickHandler);
 }
 
 function main() {
