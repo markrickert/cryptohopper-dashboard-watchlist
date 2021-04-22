@@ -35,6 +35,9 @@ var REMOVE_HOPPIE = true;
 // and a "buy" indicator where your last purchase was with the average rate.
 var SHOW_BUY_RATE_IN_TRADING_VIEW = true;
 
+// Adds an absolute value to the Result column on the dashboard
+var ADD_ABSOLUTE_RESULT = true;
+
 // You can add and remove items from this list at will or change around the colors.
 // I have only tested font awesome icons (with the prefix "fa-").
 // You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
@@ -148,6 +151,30 @@ function initScript() {
   // Start watching for targets
   if (ENABLE_POSITION_TARGETS) {
     watchTargets();
+  }
+
+  // Begin to watch for table updates when on the dashboard page
+  if($('#openPosTableHolder').length) {
+    // Add absolute values to the Result column
+    if(ADD_ABSOLUTE_RESULT) {
+      addAbsoluteResult($('#openPosTableHolder tbody'));
+      watchForTableUpdates(); // Here for now as a placeholder - move out of this if statement when other functions that depend on this observer are added
+
+      function reInitAbsoluteResult() {
+        var rebindInterval = window.setInterval(function() {
+          var table = $('#openPosTableHolder tbody');
+          if(table.length) {
+            addAbsoluteResult(table);
+            watchForTableUpdates();
+            table.on("destroyed", reInitAbsoluteResult);
+            window.clearInterval(rebindInterval);
+          }
+        }, 200);
+      }
+
+      // Watch for when the table is destroyed so that we can recreate our mutation observer when this happens
+      $('#openPosTableHolder tbody').on("destroyed", reInitAbsoluteResult);
+    }
   }
 }
 
@@ -304,6 +331,48 @@ function createWatchlistColumn() {
   });
 }
 
+// Add absolute value to the Result column
+function addAbsoluteResult(node) {
+  $('td span[class*="rate_"]:visible:not(:contains("("))',node).each(function() {
+    var change = $(this).text().replace('%','');
+    var cost = $(this).closest('td').prev().text();
+    $(this).text($(this).text() + ' (' + (change / 100 * cost).toFixed(2) + ')');
+  });
+}
+
+// This function watches for updates on the position table when on the dashboard view
+function watchForTableUpdates() {
+  // The node to be monitored
+  var mutationTarget = $( '#openPosTableHolder tbody' )[0];
+
+  // Create an observer instance
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      var newNodes = mutation.addedNodes; // DOM NodeList
+      if(newNodes !== null) { // If there are new nodes added
+        var $nodes = $(newNodes); // jQuery set
+        $nodes.each(function() {
+          if(ADD_ABSOLUTE_RESULT) addAbsoluteResult($(this));
+        });
+      }
+    });    
+  });
+
+  // Configuration of the observer:
+  var config = { 
+    attributes: true, 
+    childList: true, 
+    characterData: true 
+  };
+   
+  // Pass in the mutation target node, as well as the observer options
+  observer.observe(mutationTarget, config);
+
+  // Clean up our mutation observer when the table is destroyed
+  $(mutationTarget).on('destroyed', function() {
+    observer.disconnect();
+  });
+}
 function main() {
   if (window.location.pathname === "/chart/chart.php") {
     if (SHOW_BUY_RATE_IN_TRADING_VIEW) {
