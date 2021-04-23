@@ -316,8 +316,11 @@ function createWatchlistColumn() {
 // Add handling to allow for holding down the shift key while clicking a position checkbox to select all positions of the same coin/token
 function positionSelectionHandler() {
   var modifierPressed = false;
-  var table = $('#switchOpenPosTabs ~ .tab-content tbody:visible input[type="checkbox"]').closest('tbody:visible');
+  var tableSwitcher = $('#switchOpenPosTabs');
+  var tableContainer = $('~ .tab-content', tableSwitcher);
+  var table = $('tbody:visible input[type="checkbox"]', tableContainer).closest('tbody:visible');
 
+  // Store the shift key state
   $(document).on('keydown keyup', function(e) { modifierPressed = e.shiftKey; });
 
   function shiftClickHandler(e) {
@@ -342,13 +345,10 @@ function positionSelectionHandler() {
     }
   }
 
-  // Bind our event handler
-  $('input[type="checkbox"]', table).on('click', shiftClickHandler);
-
   function reInitShiftClickHandler() {
     var counter = 0;
     var rebindInterval = window.setInterval(function() {
-      var newTable = $('#switchOpenPosTabs ~ .tab-content tbody:visible input[type="checkbox"]').closest('tbody:visible');
+      var newTable = $('tbody:visible input[type="checkbox"]', tableContainer).closest('tbody:visible');
       if(newTable.length) {
         $('input[type="checkbox"]', newTable).off().on('click', shiftClickHandler);
         newTable.on('destroyed', reInitShiftClickHandler);
@@ -360,9 +360,14 @@ function positionSelectionHandler() {
     }, 200);
   }
 
-  // If the table is destroyed, rebind our event handler to the newly recreated elements
+  // Bind our event handlers
+  $('input[type="checkbox"]', table).on('click', shiftClickHandler);
+
+  // If the table is destroyed, rebind our event handlers to the newly recreated elements
   table.on('destroyed', reInitShiftClickHandler);
-  $('#switchOpenPosTabs').on('click', reInitShiftClickHandler);
+
+  // Rebind our event handlers when switching to a different table
+  tableSwitcher.on('click', reInitShiftClickHandler);
 }
 
 function main() {
