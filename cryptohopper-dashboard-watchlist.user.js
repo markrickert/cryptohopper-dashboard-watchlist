@@ -160,6 +160,7 @@ function initScript() {
       addAbsoluteResult($('#openPosTableHolder tbody'));
 
       function reInitAbsoluteResult() {
+        var counter = 0;
         var rebindInterval = window.setInterval(function() {
           var table = $('#openPosTableHolder tbody');
           if(table.length) {
@@ -167,6 +168,9 @@ function initScript() {
             table.on('destroyed', reInitAbsoluteResult);
             window.clearInterval(rebindInterval);
           }
+        counter++;
+        // Timeout after 5 mins
+        if(counter >= 1500) window.clearInterval(rebindInterval);
         }, 200);
       }
 
