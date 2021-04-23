@@ -154,7 +154,7 @@ function initScript() {
   }
 
   // When the open position table is displayed (on the dashboard page)
-  if($('#openPosTableHolder').length) {
+  if($('#switchOpenPosTabs').length) {
     // Add handling to allow the selection of all open positions by shift+clicking the checkbox for that position
     if(SELECT_ALL_OPEN_POSITIONS) positionSelectionHandler();
   }
@@ -316,40 +316,49 @@ function createWatchlistColumn() {
 // Add handling to allow for holding down the shift key while clicking a position checkbox to select all positions of the same coin/token
 function positionSelectionHandler() {
   var modifierPressed = false;
+  var table = $('#switchOpenPosTabs ~ .tab-content tbody:visible input[type="checkbox"]').closest('tbody:visible');
 
   $(document).on('keydown keyup', function(e) { modifierPressed = e.shiftKey; });
 
   function shiftClickHandler(e) {
     if(modifierPressed && e.originalEvent !== undefined && e.originalEvent.isTrusted) {
       var checkbox = $(this);
-      var ticker = checkbox.closest('td').next().text();
-      var checked = checkbox.prop("checked");
+      var clickTable = checkbox.closest('table');
+      var coinHeader = $('th:contains("Currency")', clickTable);
+      if(coinHeader.length) {
+        var coinIndex = coinHeader.index() + 1;
+        var coin = checkbox.closest('tr').find('>td:nth-child(' + coinIndex + ')').text();
+        var checked = checkbox.prop('checked');
 
-      // Iterate through each position that has a ticker that matches the ticker for the checkbox we clicked on
-      $('#openPosTableHolder tbody td:contains(' + ticker + ')').closest('tr').find('input[name="bulkselection[]"]').not(checkbox).each(function() {
-        var el = $(this);
-        // Verify that our ticker is an exact match then update its checked value to match the checkbox we clicked
-        if(el.closest('td').next().text() == ticker) el.prop('checked', checked);
-      });
+        // Iterate through each position that has a coin that matches the coin for the checkbox we clicked on
+        $('td:contains(' + coin + ')', clickTable).filter(function() {
+          // Filter out any elements that aren't an exact match for our coin
+          return $(this).text() == coin;
+        }).closest('tr').find('input[type="checkbox"]').not(checkbox).each(function() {
+          // Update checked values to match the checkbox we clicked
+          $(this).prop('checked', checked);
+        });
+      }
     }
   }
 
   // Bind our event handler
-  $('#openPosTableHolder tbody input[name="bulkselection[]"]').on('click', shiftClickHandler);
+  $('input[type="checkbox"]', table).on('click', shiftClickHandler);
 
   function reInitShiftClickHandler() {
     var rebindInterval = window.setInterval(function() {
-      var table = $('#openPosTableHolder tbody');
-      if(table.length) {
-        $('#openPosTableHolder tbody input[name="bulkselection[]"]').on('click', shiftClickHandler);
-        table.on('destroyed', reInitShiftClickHandler);
+      var newTable = $('#switchOpenPosTabs ~ .tab-content tbody:visible input[type="checkbox"]').closest('tbody:visible');
+      if(newTable.length) {
+        $('input[type="checkbox"]', newTable).off().on('click', shiftClickHandler);
+        newTable.on('destroyed', reInitShiftClickHandler);
         window.clearInterval(rebindInterval);
       }
     }, 200);
   }
 
   // If the table is destroyed, rebind our event handler to the newly recreated elements
-  $('#openPosTableHolder tbody input[name="bulkselection[]"]').on('destroyed', reInitShiftClickHandler);
+  table.on('destroyed', reInitShiftClickHandler);
+  $('#switchOpenPosTabs').on('click', reInitShiftClickHandler);
 }
 
 function main() {
