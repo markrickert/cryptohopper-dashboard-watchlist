@@ -154,7 +154,7 @@ function initScript() {
   }
 
   // When the open position table is displayed (on the dashboard page)
-  if($('#openPosTableHolder').length) {
+  if($('#switchOpenPosTabs').length) {
     // Add absolute values to the Result column
     if(ADD_ABSOLUTE_RESULT) {
       addAbsoluteResult($('#openPosTableHolder tbody'));
