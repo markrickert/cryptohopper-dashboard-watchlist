@@ -333,9 +333,9 @@ function createWatchlistColumn() {
 function addAbsoluteResult(node, direct) {
   var target = direct ? node : $('td span[class*="rate_"]:visible:not(:contains("("))',node);
   target.each(function() {
-    var change = $(this).text().replace('%','');
-    var cost = $(this).closest('td').prev().text();
     var el = $(this);
+    var change = el.text().replace('%','');
+    var cost = el.closest('td').prev().text();
     el.html(el.html() + ' <span>(' + (change / 100 * cost).toFixed(2) + ')</span>');
     // When the result updates, recalculate the absolute result
     $('>span',el).off().on('destroyed',function() {
