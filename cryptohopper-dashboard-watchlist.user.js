@@ -157,6 +157,12 @@ function initScript() {
   if($('#switchOpenPosTabs').length) {
     // Add absolute values to the Result column
     if(ADD_ABSOLUTE_RESULT) {
+      GM_addStyle(`
+        span[class*="rate_"]>span {
+          margin-left: 0.5em;
+        }
+      `);
+      
       addAbsoluteResult($('#openPosTableHolder tbody'));
 
       function reInitAbsoluteResult() {
@@ -342,7 +348,7 @@ function addAbsoluteResult(node, direct) {
     var change = el.text().replace('%','');
     var cost = el.closest('td').prev().text();
 
-    el.html(el.html() + ' <span>(' + (change / 100 * cost).toFixed(2) + ')</span>');
+    el.html(el.html() + '<span>(' + (change / 100 * cost).toFixed(2) + ')</span>');
 
     // When the result updates, recalculate the absolute result
     $('>span',el).off().on('destroyed',function() {
