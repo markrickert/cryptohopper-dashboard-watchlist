@@ -142,8 +142,10 @@ function initScript() {
 
   if (REMOVE_HOPPIE) {
     GM_addStyle(`
-      img.hoppie-paperclip {
-        display: none;
+      img.hoppie-paperclip,
+      img.hoppiePaperclipAnimation,
+      div.hoppie-speech-container {
+        display: none !important;
       }
     `);
   }
@@ -292,7 +294,7 @@ function createWatchlistColumn() {
       refreshColors();
       refreshIcons();
     })
-    .bind("destroyed", function () {
+    .on("destroyed", function () {
       setTimeout(() => {
         // If the X button is destroyed, that means the table refreshed and we need to reapply our columns and colors.
         initApp();
