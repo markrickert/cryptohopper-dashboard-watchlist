@@ -35,6 +35,9 @@ var REMOVE_HOPPIE = true;
 // and a "buy" indicator where your last purchase was with the average rate.
 var SHOW_BUY_RATE_IN_TRADING_VIEW = true;
 
+// Adds an absolute value to the Result column on the dashboard
+var ADD_ABSOLUTE_RESULT = true;
+
 // You can add and remove items from this list at will or change around the colors.
 // I have only tested font awesome icons (with the prefix "fa-").
 // You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
@@ -150,6 +153,28 @@ function initScript() {
   // Start watching for targets
   if (ENABLE_POSITION_TARGETS) {
     watchTargets();
+  }
+
+  // When the open position table is displayed (on the dashboard page)
+  if ($("#switchOpenPosTabs").length) {
+    // Add absolute values to the Result column
+    if (ADD_ABSOLUTE_RESULT) {
+      GM_addStyle(`
+        span[class*="rate_"]>span {
+          margin-left: 0.5em;
+        }
+      `);
+
+      // Start listening to the ticker updates from websockets:
+      setTimeout(() => {
+        socket.on("message", function (a) {
+          parsed = JSON.parse(a);
+          if ("ticker" == parsed.type) {
+            addAbsoluteResult(parsed.result);
+          }
+        });
+      }, 1000); // delay accessing the socket
+    }
   }
 }
 
@@ -303,6 +328,42 @@ function createWatchlistColumn() {
   ).each(function () {
     const coin = $("strong", this).first().text();
     $("td", this).first().empty().append(createWatchButton(coin));
+  });
+}
+
+// Add absolute value to the Result column
+function addAbsoluteResult(targets) {
+  // get unique currencyPairs:
+  var currencyTicketUpdatePairs = Object.keys(targets);
+  var spanSelectors = currencyTicketUpdatePairs.map((currentValue, index) => {
+    return `span.rate_${currentValue}`;
+  });
+  //console.log('currencyTicketUpdatePairs', currencyTicketUpdatePairs, spanSelectors);
+
+  spanSelectors.forEach((currencyPairSelector) => {
+    // console.log("currencyPairSelector:", currencyPairSelector);
+    $(`${currencyPairSelector}`).each(function () {
+      var el = $(this);
+      // console.log("el:", el);
+      var change = el.text().replace("%", "");
+      var cost = el.closest("td").prev().text();
+
+      if (el && change && cost) {
+        try {
+          // Update the span with the change
+          el.html(
+            el.html() +
+              "<span>(" +
+              ((change / 100) * cost).toFixed(2) +
+              ")</span>"
+          );
+        } catch (e) {
+          console.log(
+            "cryptohopper-dashboard-watchlist - error setting absolute change value."
+          );
+        }
+      }
+    });
   });
 }
 
