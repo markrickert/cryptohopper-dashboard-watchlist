@@ -340,23 +340,45 @@ function addAbsoluteResult(targets) {
   });
   //console.log('currencyTicketUpdatePairs', currencyTicketUpdatePairs, spanSelectors);
 
-  spanSelectors.forEach((currencyPairSelector) => {
-    // console.log("currencyPairSelector:", currencyPairSelector);
+  spanSelectors.forEach((currencyPairSelector, i) => {
     $(`${currencyPairSelector}`).each(function () {
-      var el = $(this);
-      // console.log("el:", el);
-      var change = el.text().replace("%", "");
-      var cost = el.closest("td").prev().text();
+      var el = $(this); // Turn it into a jquery object
+      var tx = el.text().split("(")[0]; // gets the percentage changed text
+      var change = tx.trim().replace("%", ""); // gets the raw number without %
+      let td = $(this).closest("td").prev(); // We think the previous td is the cost.
+      // Setup vars
+      let cost = false;
+      var thText;
 
-      if (el && change && cost) {
+      // Try to find the cost of the position by searching the
+      // table headers for the word "Cost".
+      while (cost === false) {
+        thText = td
+          .closest("tbody")
+          .prev("thead")
+          .find("> tr > th:eq(" + td.index() + ")");
+        if (thText.length) {
+          // If we found a header element
+          if (thText.text().toLowerCase() === "cost") {
+            // We know the current <td> contains the cost
+            cost = td.text().trim();
+          } else {
+            // Go back one <td> and look at the header again.
+            td = td.prev();
+          }
+        } else {
+          break;
+        }
+      }
+
+      if (cost) {
         try {
           // Update the span with the change
-          el.html(
-            el.html() +
-              "<span>(" +
-              ((change / 100) * cost).toFixed(2) +
-              ")</span>"
-          );
+          let difference = ((change / 100) * cost).toFixed(2);
+          if (difference > 0) {
+            difference = "+" + difference;
+          }
+          el.html(el.html() + "<span>(" + difference + ")</span>");
         } catch (e) {
           console.log(
             "cryptohopper-dashboard-watchlist - error setting absolute change value."
