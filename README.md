@@ -7,10 +7,10 @@ This is a small collection of userscripts that run on cryptohopper.com to enhanc
 > if you already have TamperMonkey installed and know what you're dong.
 
 * [`cryptohopper-dashboard-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js)
+* [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
 * [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.user.js)
 * [`position-targets.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js)
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
-* [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
 
 ## cryptohopper-dashboard-watchlist.user.js
 
@@ -24,6 +24,16 @@ Light Mode             |  Dark Mode
 :-------------------------:|:-------------------------:
 ![](images/watchlist-light.png)  |  ![](images/watchlist-dark.png)
 
+
+## absolute-value.user.js
+
+* Adds an absolute value next to the percentage change on your open positions table.
+
+Light Mode             |  Dark Mode
+:-------------------------:|:-------------------------:
+![](images/absolute-value-light.png)  |  ![](images/absolute-value-dark.png)
+
+> Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
 
 ## chart-mods.user.js
 
