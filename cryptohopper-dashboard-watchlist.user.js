@@ -168,15 +168,14 @@ function initScript() {
       // Start listening to the ticker updates from websockets:
       setTimeout(() => {
         socket.on("message", function (a) {
-          parsed = JSON.parse(a);
+          var parsed = JSON.parse(a);
           if ("ticker" == parsed.type) {
             addAbsoluteResult(parsed.result);
           }
         });
-      }, 1000); // delay accessing the socket
+      }, 1000); // delay accessing the socket variable so we know it's initialized.
     }
   }
-}
 
 function initChartMods() {
   console.log("initChartMods");
@@ -374,11 +373,9 @@ function addAbsoluteResult(targets) {
       if (cost) {
         try {
           // Update the span with the change
-          let difference = ((change / 100) * cost).toFixed(2);
-          if (difference > 0) {
-            difference = "+" + difference;
-          }
-          el.html(el.html() + "<span>(" + difference + ")</span>");
+          const difference = ((change / 100) * cost).toFixed(2);
+          const elHTML = el.text().split("(")[0];
+          el.html(elHTML + "<span>(" + difference + ")</span>");
         } catch (e) {
           console.log(
             "cryptohopper-dashboard-watchlist - error setting absolute change value."
