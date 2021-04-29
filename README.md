@@ -12,7 +12,13 @@ This is a small collection of userscripts that run on cryptohopper.com to enhanc
 * [`position-targets.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js)
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
 
-## cryptohopper-dashboard-watchlist.user.js
+## ⚠️ Security implications: ⚠️
+
+> These scripts manipulate elements on a financial site while you are logged in. Please read and understand what the code is doing before you run it!
+
+You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
+
+### cryptohopper-dashboard-watchlist.user.js
 
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard or mark coins that are part of a custom config pool.
 * Clear individual coin watches by cycling through the list in the Open Positions table.
@@ -20,62 +26,60 @@ This is a small collection of userscripts that run on cryptohopper.com to enhanc
 * Adds row colors to the Last 5 Sells table and the trade history page.
 * Looks great in light and dark mode!
 
-Light Mode             |  Dark Mode
-:-------------------------:|:-------------------------:
+|||
+:-:|:-:
 ![](images/watchlist-light.png)  |  ![](images/watchlist-dark.png)
 
 
-## absolute-value.user.js
+### absolute-value.user.js
 
 * Adds an absolute value next to the percentage change on your open positions table.
 
-Light Mode             |  Dark Mode
-:-------------------------:|:-------------------------:
+|||
+:-:|:-:
 ![](images/absolute-value-light.png)  |  ![](images/absolute-value-dark.png)
 
 > Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
 
-## chart-mods.user.js
+### chart-mods.user.js
 
 * Adds your average price and last buy indicator to the Tradingview graph.
 
-Light Mode             |  Dark Mode
-:-------------------------:|:-------------------------:
+|||
+:-:|:-:
 ![](images/chart-mods-light.png)  |  ![](images/chart-mods-dark.png)
 
 > Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
 
-## position-targets.user.js
+### position-targets.user.js
 
 * Puts a target icon next to each currency symbol when it is on the target buy/sell list for easier tracking of what the bot is recommending to buy or sell.
 
-Light Mode             |  Dark Mode
-:-------------------------:|:-------------------------:
+|||
+:-:|:-:
 ![](images/targets-light.png)  |  ![](images/targets-dark.png)
 
-## remove-hoppie.user.js
+### remove-hoppie.user.js
 
 * Permanently hide hoppie's hand from poking out of the side of the screen.
 
 ---
 
-# ⚠️ Security implications: ⚠️
-
-> This is a script that manipulates elements on a financial site while you are logged in. Please read and understand what the code is doing before you run it!
-
-You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
-
 # Installation:
 
-1. [**Read and understand exactly what this script is doing.**](cryptohopper-dashboard-watchlist.user.js)
-2. Install a userscript extension in your browser like [TamperMonkey](https://www.tampermonkey.net/).
-3. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it.
-4. Navigate to your Cryptohopper dashboard.
-5. 🤖💰🚀🌖
-6. ...
-7.  You can turn on auto-updates to the script or check back here for new versions.
+1. Select a the user script you want from this repository.
+1. Read through the script and familiarize yourself with the code. Make sure you understand what it does before you install it!
+1. Click the "Raw" button and your browser extension should ask you to install it.
+1. Navigate to your Cryptohopper dashboard.
+1. 🤖💰🚀🌖
+1. ...
+1. (optional) You can turn on auto-updates to the script or check back here for new versions.
 
-# Contribution
+# Other great Cryptohopper userscripts:
+
+* [coffeeneer/cryptohopper_scripts](coffeeneer/cryptohopper_scripts)
+
+# Contributing
 
 New ideas are always welcome! Please open a github ticket with your idea and maybe we can make it a reality! Contributions and pull requests are always welcome!
 
