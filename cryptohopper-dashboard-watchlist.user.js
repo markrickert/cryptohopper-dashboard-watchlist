@@ -28,9 +28,6 @@ var ENABLE_POSITION_TARGETS = true;
 // When enabled, will clear a watch target on doouobleclick.
 var EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR = false;
 
-// Removes the annoying image of "hoppie" sticking his arm out from the side of the page.
-var REMOVE_HOPPIE = true;
-
 // Puts a green dotted line on all tradingview charts that shows your buy rate
 // and a "buy" indicator where your last purchase was with the average rate.
 var SHOW_BUY_RATE_IN_TRADING_VIEW = true;
@@ -133,16 +130,6 @@ function initScript() {
 
       table.dataTable tr td.target-sell::after {
         color: #f6887d;
-      }
-    `);
-  }
-
-  if (REMOVE_HOPPIE) {
-    GM_addStyle(`
-      img.hoppie-paperclip,
-      img.hoppiePaperclipAnimation,
-      div.hoppie-speech-container {
-        display: none !important;
       }
     `);
   }
