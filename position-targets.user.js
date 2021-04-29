@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Position Targets
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.0.1
+// @version      0.1
 // @description  Adds a red or green icon after position names when currently targeted by the bot..
 // @author       @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Tradingview Chart Mods
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.0.1
+// @version      0.1
 // @description  Adds a few extra things to the Tradingview charts like average buy rate and indicator on your last buy.
 // @author       @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
