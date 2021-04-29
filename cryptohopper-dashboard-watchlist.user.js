@@ -21,10 +21,6 @@
  * USER TOGGLABLE SETTINGS:
  */
 
-// When enabled, will add a green or red target icon next to the currency
-// in your positions list when the hopper returns targeting results.
-var ENABLE_POSITION_TARGETS = true;
-
 // When enabled, will clear a watch target on doouobleclick.
 var EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR = false;
 
@@ -62,43 +58,6 @@ var OTHER_TABLES = "table:contains('Currency'):contains('View')";
 var LATEST_TRATES_TABLE = "#datatable-latesttrades";
 var classes = Object.keys(WATCHLIST_STATUSES);
 
-// This function listens for network requests and intercepts the target list to turn their icon on and off.
-function watchTargets() {
-  $(document).ajaxComplete(function (event, xhr, settings) {
-    refreshColors();
-    try {
-      var response = JSON.parse(xhr.responseText);
-      if (response.data) {
-        var { current_sells, new_target } = response.data;
-
-        var allCoinTds = $(
-          CURRENCY_TABLE + ` tr td:has("a[data-target='.chart-modal'] strong")`
-        );
-        allCoinTds.removeClass("target-buy target-sell");
-
-        if (current_sells && current_sells.length > 0) {
-          var sellTargets = current_sells.split(",");
-          allCoinTds.each((i, td) => {
-            if (sellTargets.includes(td.innerText)) {
-              $(td).addClass("target-sell");
-            }
-          });
-        }
-        if (new_target && new_target.length > 0) {
-          var buyTargets =
-            typeof new_target === "string" ? [new_target] : new_target;
-
-          allCoinTds.each((i, td) => {
-            if (buyTargets.includes(td.innerText)) {
-              $(td).addClass("target-buy");
-            }
-          });
-        }
-      }
-    } catch (e) {}
-  });
-}
-
 // Adds our own styles to the page. Just do this once.
 function initScript() {
   // Create the classes for each watchlist key:
@@ -111,33 +70,6 @@ function initScript() {
       }
     `);
   });
-
-  if (ENABLE_POSITION_TARGETS) {
-    GM_addStyle(`
-      table.dataTable tr td.target-buy::after, table.dataTable tr td.target-sell::after {
-        display: inline-block;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-
-        font-family:'Material Design Iconic Font';
-        padding-left:3px;
-        font-size: 0.9em;
-        content:"\\f140";
-        color: #06cc98;
-      }
-
-      table.dataTable tr td.target-sell::after {
-        color: #f6887d;
-      }
-    `);
-  }
-
-  // Start watching for targets
-  if (ENABLE_POSITION_TARGETS) {
-    watchTargets();
-  }
 }
 
 function initChartMods() {
