@@ -1,8 +1,18 @@
-# cryptohopper-dashboard-watchlist
+# User Scripts to modify your Cryptohopper Experience
 
-This is a small userscript that runs in your browser extension adding the ability to "watch" certain coins in your account easier by assigning an icon and changing the background color. This allows you to track each coin over multiple hoppers with ease.
+This is a small collection of userscripts that run on cryptohopper.com to enhance your experience. Each userscript focuses on one tweak or feature and can be run independent of the others. Run them all or just a few!
 
-## Features:
+### Quick install links:
+
+> if you already have TamperMonkey installed and know what you're dong.
+
+* [`cryptohopper-dashboard-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js)
+* [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.user.js)
+* [`position-targets.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js)
+* [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
+* [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
+
+## cryptohopper-dashboard-watchlist.user.js
 
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard or mark coins that are part of a custom config pool.
 * Clear individual coin watches by cycling through the list in the Open Positions table.
@@ -10,13 +20,34 @@ This is a small userscript that runs in your browser extension adding the abilit
 * Adds row colors to the Last 5 Sells table and the trade history page.
 * Looks great in light and dark mode!
 
-### Other Small Tweaks:
+Light Mode             |  Dark Mode
+:-------------------------:|:-------------------------:
+![](images/watchlist-light.png)  |  ![](images/watchlist-dark.png)
 
-> All these features are flagged so you can easily turn them off:
+
+## chart-mods.user.js
+
+* Adds your average price and last buy indicator to the Tradingview graph.
+
+Light Mode             |  Dark Mode
+:-------------------------:|:-------------------------:
+![](images/chart-mods-light.png)  |  ![](images/chart-mods-dark.png)
+
+> Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
+
+## position-targets.user.js
 
 * Puts a target icon next to each currency symbol when it is on the target buy/sell list for easier tracking of what the bot is recommending to buy or sell.
+
+Light Mode             |  Dark Mode
+:-------------------------:|:-------------------------:
+![](images/targets-light.png)  |  ![](images/targets-dark.png)
+
+## remove-hoppie.user.js
+
 * Permanently hide hoppie's hand from poking out of the side of the screen.
-* Adds a green dotted line in the chart view for where your average buy rate for that position is along with an arrow pointing to the candle at the time you last bought.
+
+---
 
 # ⚠️ Security implications: ⚠️
 
@@ -24,30 +55,19 @@ This is a small userscript that runs in your browser extension adding the abilit
 
 You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
 
-# See it in action!
-
-Light Mode             |  Dark Mode
-:-------------------------:|:-------------------------:
-![](cryptohopper-example.png)  |  ![](cryptohopper-example-darkmode.png)
-
 # Installation:
 
 1. [**Read and understand exactly what this script is doing.**](cryptohopper-dashboard-watchlist.user.js)
 2. Install a userscript extension in your browser like [TamperMonkey](https://www.tampermonkey.net/).
-3. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it. You can also click this link: [`cryptohopper-dashboard-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js).
+3. After reading the script and understanding what it does, click the "Raw" button and your browser extension should ask you to install it.
 4. Navigate to your Cryptohopper dashboard.
 5. 🤖💰🚀🌖
 6. ...
-7. You can turn on auto-updates to the script or check back here for new versions.
+7.  You can turn on auto-updates to the script or check back here for new versions.
 
-# Editing the script's behavior:
+# Contribution
 
-All of the icons and colors can be customized in the script. Feel free to modify colors to your liking and add/remove watchlist statuses in the `WATCHLIST_STATUSES` var.
-
-# Roadmap:
-
-1. Add trend indicators to positions.
-2. An overlay interface that allows you to customize status icons/colors.
+New ideas are always welcome! Please open a github ticket with your idea and maybe we can make it a reality! Contributions and pull requests are always welcome!
 
 ---
 
