@@ -6,7 +6,7 @@ This is a small collection of userscripts that run on cryptohopper.com to enhanc
 
 > if you already have TamperMonkey installed and know what you're dong.
 
-* [`cryptohopper-dashboard-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js)
+* [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
 * [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
 * [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.user.js)
 * [`position-targets.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js)
@@ -18,7 +18,7 @@ This is a small collection of userscripts that run on cryptohopper.com to enhanc
 
 You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
 
-### cryptohopper-dashboard-watchlist.user.js
+### coin-watchlist.user.js
 
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard or mark coins that are part of a custom config pool.
 * Clear individual coin watches by cycling through the list in the Open Positions table.

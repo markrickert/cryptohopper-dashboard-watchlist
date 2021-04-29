@@ -29,7 +29,6 @@
     var spanSelectors = currencyTicketUpdatePairs.map((currentValue, index) => {
       return `span.rate_${currentValue}`;
     });
-    //console.log('currencyTicketUpdatePairs', currencyTicketUpdatePairs, spanSelectors);
 
     spanSelectors.forEach((currencyPairSelector, i) => {
       $(`${currencyPairSelector}`).each(function () {
@@ -70,7 +69,7 @@
             el.html(elHTML + "<span>(" + difference + ")</span>");
           } catch (e) {
             console.log(
-              "cryptohopper-dashboard-watchlist - error setting absolute change value."
+              "absolute-value.user.js - error setting absolute change value."
             );
           }
         }

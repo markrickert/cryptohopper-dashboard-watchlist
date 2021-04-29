@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name         Cryptohopper Watchlist
+// @name         Cryptohopper Coin Watchlist
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.10
+// @version      0.11.0
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/cryptohopper-dashboard-watchlist.user.js
+// @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js
 // @match        https://www.cryptohopper.com/dashboard
 // @match        https://www.cryptohopper.com/trade-history
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com

@@ -38,7 +38,7 @@
 
   function processResponse(event, xhr, settings) {
     const response = JSON.parse(xhr.responseText);
-    if (response.data && "new_target" === response.data.type) {
+    if (response.data && response.data.current_sells) {
       const { current_sells, new_target } = response.data;
 
       const allCoinTDs = jQuery(
