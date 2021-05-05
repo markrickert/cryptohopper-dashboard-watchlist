@@ -11,6 +11,7 @@ This is a small collection of userscripts that run on cryptohopper.com to enhanc
 * [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.user.js)
 * [`position-targets.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js)
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
+* [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
 
 ## ⚠️ Security implications: ⚠️
 
@@ -62,6 +63,10 @@ You are responsible for the code you run on your own computer. By downloading an
 ### remove-hoppie.user.js
 
 * Permanently hide hoppie's hand from poking out of the side of the screen.
+
+### stay-level-headed.user.js
+
+* Removes those pesky emotions and hides the panic button from the dashboard so you can't click it in a moment of weakness.
 
 ---
 
