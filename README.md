@@ -82,7 +82,7 @@ You are responsible for the code you run on your own computer. By downloading an
 
 # Other great Cryptohopper userscripts:
 
-* [coffeeneer/cryptohopper_scripts](coffeeneer/cryptohopper_scripts)
+* [coffeeneer/cryptohopper_scripts](https://github.com/coffeeneer/cryptohopper_scripts)
 
 # Contributing
 
