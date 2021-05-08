@@ -2,24 +2,13 @@
 
 This is a small collection of userscripts that run on cryptohopper.com to enhance your experience. Each userscript focuses on one tweak or feature and can be run independent of the others. Run them all or just a few!
 
-### Quick install links:
-
-> if you already have TamperMonkey installed and know what you're dong.
-
-* [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
-* [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
-* [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.user.js)
-* [`position-targets.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js)
-* [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
-* [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
-
 ## ⚠️ Security implications: ⚠️
 
 > These scripts manipulate elements on a financial site while you are logged in. Please read and understand what the code is doing before you run it!
 
 You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
 
-### coin-watchlist.user.js
+## coin-watchlist.user.js
 
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard or mark coins that are part of a custom config pool.
 * Clear individual coin watches by cycling through the list in the Open Positions table.
@@ -32,7 +21,7 @@ You are responsible for the code you run on your own computer. By downloading an
 ![](images/watchlist-light.png)  |  ![](images/watchlist-dark.png)
 
 
-### absolute-value.user.js
+## absolute-value.user.js
 
 * Adds an absolute value next to the percentage change on your open positions table.
 
@@ -42,7 +31,7 @@ You are responsible for the code you run on your own computer. By downloading an
 
 > Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
 
-### chart-mods.user.js
+## chart-mods.user.js
 
 * Adds your average price and last buy indicator to the Tradingview graph.
 
@@ -52,7 +41,7 @@ You are responsible for the code you run on your own computer. By downloading an
 
 > Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
 
-### position-targets.user.js
+## position-targets.user.js
 
 * Puts a target icon next to each currency symbol when it is on the target buy/sell list for easier tracking of what the bot is recommending to buy or sell.
 
@@ -60,11 +49,11 @@ You are responsible for the code you run on your own computer. By downloading an
 :-:|:-:
 ![](images/targets-light.png)  |  ![](images/targets-dark.png)
 
-### remove-hoppie.user.js
+## remove-hoppie.user.js
 
 * Permanently hide hoppie's hand from poking out of the side of the screen.
 
-### stay-level-headed.user.js
+## stay-level-headed.user.js
 
 * Removes those pesky emotions and hides the panic button from the dashboard so you can't click it in a moment of weakness.
 
@@ -79,6 +68,18 @@ You are responsible for the code you run on your own computer. By downloading an
 1. 🤖💰🚀🌖
 1. ...
 1. (optional) You can turn on auto-updates to the script or check back here for new versions.
+
+### Quick install links:
+
+> if you already have TamperMonkey installed and know what you're dong.
+
+* [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
+* [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
+* [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.js)
+* [`position-targets.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js)
+* [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
+* [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
+
 
 # Other great Cryptohopper userscripts:
 
