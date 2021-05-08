@@ -1,6 +1,12 @@
-# User Scripts to modify your Cryptohopper Experience
+# User Scripts to Improve your Cryptohopper Experience
 
-This is a small collection of userscripts that run on cryptohopper.com to enhance your experience. Each userscript focuses on one tweak or feature and can be run independent of the others. Run them all or just a few!
+This is a small collection of userscripts that run on [cryptohopper.com](https://www.cryptohopper.com/?atid=16750) to enhance your experience. Each userscript focuses on one tweak or feature and can be run independent of the others. Run them all or just a few!
+
+**What Is Cryptohopper?**
+
+Cryptohopper is an algorithmic trading platform that interfaces with your crypto exchange to trade cryptocurrency on your behalf using market trends, signals, and strategies. It watches the market 24/7 and tries to determine the best time to enter a position and then sell at a predetermined profit target.
+
+[Sign Up for Cryptohopper](https://www.cryptohopper.com/?atid=16750) (afiliate link)
 
 ## ⚠️ Security implications: ⚠️
 
@@ -80,6 +86,19 @@ You are responsible for the code you run on your own computer. By downloading an
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
 
+# Donate
+
+If you enjoy using these scripts and would like to donate you can tip me with the Brave Browser in BAT or send to any of these addresses:
+
+> BAT: 0x23d89970B883DEA62e74AeFdf5B0d739e91A0292
+
+> BTC: 3DK79sPwBoguNd1b3Et2c3WdWzxfjwxBpj
+
+> ETH: 0xbb475E8B86c945c30EED650858949b475BE5f970
+
+> ALGO: TQJC62XSTKUU4BVFUKMREOVB4EZYYAQQBSKVTBBPQTQQJXBXGROTMFAZ3Q
+
+> ADA: addr1vxt8feadqlal6tx2udemvwm2pgm95ne3n68zlkx5v2uucdc4atcz7
 
 # Other great Cryptohopper userscripts:
 
