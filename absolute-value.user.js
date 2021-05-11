@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Absolute Values
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.1
+// @version      0.2
 // @description  Adds absolute value for your open positions after the percentage change.
 // @author       @markrickert, @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -25,7 +25,10 @@
   // Add absolute value to the Result column
   function addAbsoluteResult(targets) {
     // get unique currencyPairs:
-    var currencyTicketUpdatePairs = Object.keys(targets);
+    var currencyTicketUpdatePairs = Object.keys(targets).map((cv, i) =>
+      // Some coin pairs come back as 1INCH/USDT instead of 1INCHUSDT
+      cv.replace("/", "_")
+    );
     var spanSelectors = currencyTicketUpdatePairs.map((currentValue, index) => {
       return `span.rate_${currentValue}`;
     });
@@ -83,6 +86,7 @@
       socket.on("message", function (a) {
         var parsed = JSON.parse(a);
         if ("ticker" == parsed.type) {
+          // console.log("result", parsed.result)
           addAbsoluteResult(parsed.result);
         }
       });
