@@ -39,7 +39,7 @@
   function processResponse(event, xhr, settings) {
     const response = JSON.parse(xhr.responseText);
     if (response.data && response.data.current_sells) {
-      const { current_sells, new_target } = response.data;
+      const { current_sells, ta_values } = response.data;
 
       const allCoinTDs = jQuery(
         `table:contains('Currency'):contains('Action') tr td:has("a[data-target='.chart-modal'] strong")`
@@ -54,10 +54,13 @@
           }
         });
       }
-      if (new_target && new_target.length > 0) {
-        const buyTargets =
-          typeof new_target === "string" ? [new_target] : new_target;
 
+      let buyTargets = [];
+      for (const target in ta_values) {
+          if(ta_values[target].signals=="buy") buyTargets.push(target);
+      }
+
+      if (buyTargets && buyTargets.length > 0) {
         allCoinTDs.each((i, td) => {
           if (buyTargets.includes(td.innerText)) {
             jQuery(td).addClass("target-buy");
