@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Cryptohopper Position Targets
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.1
-// @description  Adds a red or green icon after position names when currently targeted by the bot..
+// @version      0.2
+// @description  Adds a red or green icon after position names when currently targeted by the bot.
 // @author       @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js
@@ -38,7 +38,7 @@
 
   function processResponse(event, xhr, settings) {
     const response = JSON.parse(xhr.responseText);
-    if (response.data && response.data.current_sells) {
+    if (response.data && response.data.ta_values) {
       const { current_sells, ta_values } = response.data;
 
       const allCoinTDs = jQuery(
@@ -57,7 +57,7 @@
 
       let buyTargets = [];
       for (const target in ta_values) {
-          if(ta_values[target].signals=="buy") buyTargets.push(target);
+        if (ta_values[target].signals == "buy") buyTargets.push(target);
       }
 
       if (buyTargets && buyTargets.length > 0) {
