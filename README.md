@@ -55,6 +55,18 @@ You are responsible for the code you run on your own computer. By downloading an
 :-:|:-:
 ![](images/targets-light.png)  |  ![](images/targets-dark.png)
 
+> Note: This will also show targets that are hidden by default in the targets list.
+
+## target-restore.user.js
+
+* Restores targets list to match previous functionality. Any targets that would be shown by the default UI are shown in green, any that would normally be hidden are displayed in orange.
+
+|||
+:-:|:-:
+![](images/target-restore-active-inactive.png)  |  ![](images/target-restore-inactive.png)
+
+> Note: This will also show targets that are hidden by default in the targets list.
+
 ## remove-hoppie.user.js
 
 * Permanently hide hoppie's hand from poking out of the side of the screen.
