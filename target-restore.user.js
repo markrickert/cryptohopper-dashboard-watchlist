@@ -4,8 +4,8 @@
 // @version      0.1
 // @description  Replicates old target functionality but marks any targets that would otherwise be hidden as "inactive" and displays them in the platforms warning colour
 // @author       @henrygarle
-// @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/target-restore.js
-// @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/position-targets.user.js
+// @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
+// @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/target-restore.user.js
 // @match        https://www.cryptohopper.com/dashboard
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
 // ==/UserScript==
@@ -75,11 +75,11 @@
   }
 
   // This function listens for network requests and intercepts the target list to turn their icon on and off.
-  function watchTargets() {
+  function monitorTargetRequest() {
     jQuery(document).ajaxComplete(processResponse);
   }
 
   jQuery(() => {
-    watchTargets();
+    monitorTargetRequest();
   });
 })();
