@@ -59,7 +59,7 @@ You are responsible for the code you run on your own computer. By downloading an
 
 ## target-restore.user.js
 
-* Restores targets list to match previous functionality. Any targets that would be shown by the default UI are shown in green, any that would normally be hidden are displayed in orange.
+* Restores targets list to match functionality removed on 2021-05-11. Any targets that would be shown by the default UI are shown in green, any that would normally be hidden are displayed in orange.
 
 |||
 :-:|:-:
