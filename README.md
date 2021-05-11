@@ -65,7 +65,6 @@ You are responsible for the code you run on your own computer. By downloading an
 :-:|:-:
 ![](images/target-restore-active-inactive.png)  |  ![](images/target-restore-inactive.png)
 
-> Note: This will also show targets that are hidden by default in the targets list.
 
 ## remove-hoppie.user.js
 
