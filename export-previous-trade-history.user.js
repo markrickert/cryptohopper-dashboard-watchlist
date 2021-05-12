@@ -2,7 +2,7 @@
 // @name         Cryptohopper Export Previous Trade History
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @version      0.1
-// @description  Adds a new button to the trade history page after exporting at least once, which allows users to export with a single click using the previously used settings.
+// @description  Adds a new button to the trade history page after exporting at least once, which allows users to export with a single click using the previously used settings. The author of this script finds it useful to set the *to* part of the date range to sometime in the future, such as 01/01/2031 12:01 AM, when using this functionality.
 // @author       @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-previous-trade-history.user.js

@@ -76,7 +76,7 @@ You are responsible for the code you run on your own computer. By downloading an
 
 ## export-previous-trade-history.user.js
 
-* Adds a new button to the trade history page after exporting at least once, which allows users to export with a single click using the previously used settings.
+* Adds a new button to the trade history page after exporting at least once, which allows users to export with a single click using the previously used settings. The author of this script finds it useful to set the *to* part of the date range to sometime in the future, such as 01/01/2031 12:01 AM, when using this functionality.
 
 ---
 
@@ -101,6 +101,7 @@ You are responsible for the code you run on your own computer. By downloading an
 * [`target-restore.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/target-restore.user.js)
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
+* [`export-previous-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-previous-trade-history.user.js)
 
 # Donate
 
