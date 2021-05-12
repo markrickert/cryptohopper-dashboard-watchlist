@@ -6,13 +6,23 @@ This is a small collection of userscripts that run on [cryptohopper.com](https:/
 
 Cryptohopper is an algorithmic trading platform that interfaces with your crypto exchange to trade cryptocurrency on your behalf using market trends, signals, and strategies. It watches the market 24/7 and tries to determine the best time to enter a position and then sell at a predetermined profit target.
 
-[Sign Up for Cryptohopper](https://www.cryptohopper.com/?atid=16750) (afiliate link)
+[Sign Up for Cryptohopper](https://www.cryptohopper.com/?atid=16750) (affiliate link)
+
+**Motivation**
+
+The Cryptohopper service is amazing! It has almost become an obsession of mine to watch the bot buy and sell all day long. Being a lifelong tweaker and optimizer, natually, I wanted to enhance the site with a few customizations that tailored my experience.
+
+I created a few of these scripts for personal use, and after sharing a few screenshots online I started getting requests for how others could do the same thing, leading me to make this project.
+
+Since then multiple community members have contributed tweaks, fixes, testing efforts, and even entirely new scripts! I hope this repo can become a trusted community resource for those wishing to fine-tune their user experience in different ways.
 
 ## ⚠️ Security implications: ⚠️
 
 > These scripts manipulate elements on a financial site while you are logged in. Please read and understand what the code is doing before you run it!
 
 You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
+
+Cryptohopper may change their website at any moment, causing one or all of these scripts to cease functioning.
 
 ## coin-watchlist.user.js
 
