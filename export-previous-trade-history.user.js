@@ -17,7 +17,7 @@
 if(['/trade-history'].includes(window.location.pathname)) (function () {
   "use strict";
 
-  const EXPORT_KEY = 'export-settings';
+  const EXPORT_KEY = 'export-trade-history-settings';
   const EXPORT_BUTTON_NAME = '#export-previous-trade-history';
 
   // This function adds the Export Previous button and handles click events
