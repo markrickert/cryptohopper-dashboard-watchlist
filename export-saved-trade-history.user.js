@@ -41,8 +41,9 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
     GM_addStyle(
       'button' + EXPORT_BUTTON_NAME + 
       ',button' + SAVE_BUTTON_NAME + 
-      ',button' + LOAD_BUTTON_NAME + 
-      ' { margin-right: 3px; }'
+      '{ margin-right: 3px; }' + 
+      'button' + LOAD_BUTTON_NAME + 
+      '{ margin-right: 2px; }'
     );
   }
 
