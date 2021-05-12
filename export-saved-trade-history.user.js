@@ -21,6 +21,8 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
   const EXPORT_BUTTON_NAME = '#export-saved-trade-history';
   const SAVE_BUTTON_NAME = '#save-export-settings';
   const LOAD_BUTTON_NAME = '#load-export-settings';
+  const BUTTON_PRIMARY_CLASS = 'btn btn-primary waves-effect waves-light';
+  const BUTTON_SECONDARY_CLASS = 'btn btn-default waves-effect';
 
   // This function loads the currently saved settings
   function loadSavedSettings() {
@@ -32,14 +34,22 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
     $('#check_buys').prop('checked',exportSettings.sells);
     $('#export_daterange').val(exportSettings.daterange);
   }
+  
+  // This function sets our CSS
+  function setStyles() {
+    GM_addStyle(
+      'button' + EXPORT_BUTTON_NAME + 
+      ',button' + SAVE_BUTTON_NAME + 
+      ',button' + LOAD_BUTTON_NAME + 
+      ' { margin-right: 3px; }'
+    );
+  }
 
   // This function adds the Export Saved button and handles click events
   function exportButtonHandler() {
     if(!$(EXPORT_BUTTON_NAME).length && GM_getValue(EXPORT_KEY,false) !== false) {
-      GM_addStyle('button' + EXPORT_BUTTON_NAME + ' { margin-right: 3px; }');
-      
       // Add the Export Saved button
-      $(`button[onclick="jQuery('#exportDiv').toggle()"]`).before('<button id="' + EXPORT_BUTTON_NAME.replace('#','') + '" class="btn btn-primary waves-effect waves-light"><i class="fa fa-download m-r-5"></i> Export Saved</button>');
+      $(`button[onclick="jQuery('#exportDiv').toggle()"]`).before('<button id="' + EXPORT_BUTTON_NAME.replace('#','') + '" class="' + BUTTON_PRIMARY_CLASS + '"><i class="fa fa-download m-r-5"></i> Export Saved</button>');
       
       // Handle clicks of the Export Saved button
       $(EXPORT_BUTTON_NAME).on('click',function() {
@@ -52,10 +62,8 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
 
   // This function saves the current settings when exporting
   function saveSettingsButtonHandler() {
-    GM_addStyle('button' + SAVE_BUTTON_NAME + ' { margin-right: 3px; }');
-
     // Add the Export Saved button
-    $('button[onclick="startExport()"]').before('<button id="' + SAVE_BUTTON_NAME.replace('#','') + '" class="btn btn-primary waves-effect waves-light">Save Settings</button>');
+    $('button[onclick="startExport()"]').before('<button id="' + SAVE_BUTTON_NAME.replace('#','') + '" class="' + BUTTON_PRIMARY_CLASS + '">Save Settings</button>');
 
     // Handle clicks of the Save button
     $(SAVE_BUTTON_NAME).on('click',function() {
@@ -74,16 +82,15 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
 
   // This function loads the currently saved settings
   function loadSettingsButtonHandler() {
-    GM_addStyle('button' + LOAD_BUTTON_NAME + ' { margin-right: 3px; }');
-
     // Add the Export Saved button
-    $(SAVE_BUTTON_NAME).before('<button id="' + LOAD_BUTTON_NAME.replace('#','') + '" class="btn btn-default waves-effect">Load Saved</button>');
+    $(SAVE_BUTTON_NAME).before('<button id="' + LOAD_BUTTON_NAME.replace('#','') + '" class="' + BUTTON_SECONDARY_CLASS + '">Load Saved</button>');
 
     // Handle clicks of the Load button
     $(LOAD_BUTTON_NAME).on('click',loadSavedSettings);
   }
 
   jQuery(() => {
+    setStyles();
     exportButtonHandler();
     saveSettingsButtonHandler();
     loadSettingsButtonHandler();
