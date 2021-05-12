@@ -62,10 +62,10 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
 
   // This function saves the current settings when exporting
   function saveSettingsButtonHandler() {
-    // Add the Export Saved button
+    // Add the Save Settings button
     $('button[onclick="startExport()"]').before('<button id="' + SAVE_BUTTON_NAME.replace('#','') + '" class="' + BUTTON_PRIMARY_CLASS + '">Save Settings</button>');
 
-    // Handle clicks of the Save button
+    // Handle clicks of the Save Settings button
     $(SAVE_BUTTON_NAME).on('click',function() {
       var format = $('#export_type').val();
       var buys = $('#check_sells').prop('checked');
@@ -82,10 +82,10 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
 
   // This function loads the currently saved settings
   function loadSettingsButtonHandler() {
-    // Add the Export Saved button
+    // Add the Load Saved button
     $(SAVE_BUTTON_NAME).before('<button id="' + LOAD_BUTTON_NAME.replace('#','') + '" class="' + BUTTON_SECONDARY_CLASS + '">Load Saved</button>');
 
-    // Handle clicks of the Load button
+    // Handle clicks of the Load Saved button
     $(LOAD_BUTTON_NAME).on('click',loadSavedSettings);
   }
 
