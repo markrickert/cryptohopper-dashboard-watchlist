@@ -74,7 +74,7 @@ You are responsible for the code you run on your own computer. By downloading an
 
 * Removes those pesky emotions and hides the panic button from the dashboard so you can't click it in a moment of weakness.
 
-## export-previous-trade-history.user.js
+## export-saved-trade-history.user.js
 
 * Adds new functionality to the trade history page that allows saving and loading export settings, and another that allows the user to export in a single click using the saved settings, after saving at least once. The author of this script finds it useful to set the *to* part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:01 AM.
 
@@ -101,7 +101,7 @@ You are responsible for the code you run on your own computer. By downloading an
 * [`target-restore.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/target-restore.user.js)
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
-* [`export-previous-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-previous-trade-history.user.js)
+* [`export-saved-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-saved-trade-history.user.js)
 
 # Donate
 
