@@ -84,6 +84,10 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 * Removes those pesky emotions and hides the panic button from the dashboard so you can't click it in a moment of weakness.
 
+## multi-select.user.js
+
+* Adds shift+click functionality for position checkboxes to allow selecting all positions of the same coin/token at once.
+
 ---
 
 # Installation:
@@ -107,6 +111,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * [`target-restore.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/target-restore.user.js)
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
+* [`multi-select.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/multi-select.user.js)
 
 # Donate
 
