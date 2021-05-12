@@ -10,7 +10,7 @@
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
 // ==/UserScript==
 
-// Only run this code on the /dashboard page
+// Only run this code on the dashboard page (useful when included in a parent script)
 if(['/dashboard'].includes(window.location.pathname)) (function () {
   "use strict";
 
