@@ -76,7 +76,7 @@ You are responsible for the code you run on your own computer. By downloading an
 
 ## export-previous-trade-history.user.js
 
-* Adds a new button to the trade history page after exporting at least once, which allows users to export with a single click using the previously used settings. The author of this script finds it useful to set the *to* part of the date range to sometime in the future, such as 01/01/2031 12:01 AM, when using this functionality.
+* Adds new functionality to the trade history page that allows saving and loading export settings, and another that allows the user to export in a single click using the saved settings, after saving at least once. The author of this script finds it useful to set the *to* part of the date range to sometime in the future, such as 01/01/2031 12:01 AM, when using this functionality.
 
 ---
 
