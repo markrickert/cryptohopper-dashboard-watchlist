@@ -2,7 +2,7 @@
 // @name         Cryptohopper Multi Select
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @version      0.1
-// @description  Adds shift+click functionality for position checkboxes to allow selecting all positions of the same coin/token
+// @description  Adds shift+click functionality for position checkboxes to allow selecting all positions of the same coin/token.
 // @author       @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/multi-select.user.js
