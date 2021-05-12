@@ -1,4 +1,4 @@
-# User Scripts to Improve your Cryptohopper Experience
+# A Set of User Scripts to Customize your Cryptohopper Experience
 
 This is a small collection of userscripts that run on [cryptohopper.com](https://www.cryptohopper.com/?atid=16750) to enhance your experience. Each userscript focuses on one tweak or feature and can be run independent of the others. Run them all or just a few!
 
