@@ -75,7 +75,7 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
       // Save these values for future use
       GM_setValue(EXPORT_KEY,JSON.stringify({'format':format,'buys':buys,'sells':sells,'daterange':daterange}));
 
-      // If this is the first export, add the Export Saved button
+      // If this is the first time saving, add the Export Saved button
       if(!$(EXPORT_BUTTON_NAME).length) exportButtonHandler();
     });
   }
