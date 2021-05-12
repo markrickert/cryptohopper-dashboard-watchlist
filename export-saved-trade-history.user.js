@@ -2,7 +2,7 @@
 // @name         Cryptohopper Export Saved Trade History
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @version      0.1
-// @description  Adds new functionality to the trade history page that allows saving and loading export settings, and another that allows the user to export in a single click using the saved settings, after saving at least once. The author of this script finds it useful to set the to part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:01 AM.
+// @description  Adds new functionality to the trade history page that allows saving and loading export settings, and another that allows the user to export in a single click using the saved settings, after saving at least once. The author of this script finds it useful to set the to part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
 // @author       @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-saved-trade-history.user.js
@@ -23,6 +23,7 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
   const LOAD_BUTTON_NAME = '#load-export-settings';
   const BUTTON_PRIMARY_CLASS = 'btn btn-primary waves-effect waves-light';
   const BUTTON_SECONDARY_CLASS = 'btn btn-default waves-effect';
+  var buttonsAdded = false;
 
   // This function loads the currently saved settings
   function loadSavedSettings() {
@@ -57,6 +58,8 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
 
         startExport();
       });
+
+      buttonsAdded = true;
     }
   }
 
@@ -76,17 +79,24 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
       GM_setValue(EXPORT_KEY,JSON.stringify({'format':format,'buys':buys,'sells':sells,'daterange':daterange}));
 
       // If this is the first time saving, add the Export Saved button
-      if(!$(EXPORT_BUTTON_NAME).length) exportButtonHandler();
+      if(!buttonsAdded) {
+        exportButtonHandler();
+        loadSettingsButtonHandler();
+      }
     });
   }
 
   // This function loads the currently saved settings
   function loadSettingsButtonHandler() {
-    // Add the Load Saved button
-    $(SAVE_BUTTON_NAME).before('<button id="' + LOAD_BUTTON_NAME.replace('#','') + '" class="' + BUTTON_SECONDARY_CLASS + '">Load Saved</button>');
+    if(!$(LOAD_BUTTON_NAME).length && GM_getValue(EXPORT_KEY,false) !== false) {
+      // Add the Load Saved button
+      $(SAVE_BUTTON_NAME).before('<button id="' + LOAD_BUTTON_NAME.replace('#','') + '" class="' + BUTTON_SECONDARY_CLASS + '">Load Saved</button>');
 
-    // Handle clicks of the Load Saved button
-    $(LOAD_BUTTON_NAME).on('click',loadSavedSettings);
+      // Handle clicks of the Load Saved button
+      $(LOAD_BUTTON_NAME).on('click',loadSavedSettings);
+
+      buttonsAdded = true;
+    }
   }
 
   jQuery(() => {
