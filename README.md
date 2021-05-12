@@ -74,6 +74,10 @@ You are responsible for the code you run on your own computer. By downloading an
 
 * Removes those pesky emotions and hides the panic button from the dashboard so you can't click it in a moment of weakness.
 
+## export-previous-trade-history.user.js
+
+* Adds a new button to the trade history page after exporting at least once, which allows users to export with a single click using the previously used settings.
+
 ---
 
 # Installation:
