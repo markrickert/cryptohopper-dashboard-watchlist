@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Multi Select
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.1
+// @version      0.2
 // @description  Adds shift+click functionality for position checkboxes to allow selecting all positions of the same coin/token.
 // @author       @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -10,7 +10,7 @@
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
 // ==/UserScript==
 
-// Only run this code on the dashboard page (useful when included in a parent script)
+// Only run this code on the intended page(s) (useful when @required in a parent script)
 if(['/dashboard'].includes(window.location.pathname)) (function () {
   "use strict";
 

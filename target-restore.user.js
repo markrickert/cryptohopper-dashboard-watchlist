@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Target Restore
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.1
+// @version      0.2
 // @description  Replicates old target functionality but marks any targets that would otherwise be hidden as "inactive" and displays them in the platforms warning colour
 // @author       @henrygarle
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -10,7 +10,8 @@
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
 // ==/UserScript==
 
-(function () {
+// Only run this code on the intended page(s) (useful when @required in a parent script)
+if(['/dashboard'].includes(window.location.pathname)) (function () {
   "use strict";
 
   function processResponse(event, xhr, settings) {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Export Saved Trade History
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.1
+// @version      0.2
 // @description  Adds single-click export functionality to the trade history page using the saved settings (after saving at least once), and allows for saving and loading export settings. The author of this script finds it useful to set the to part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
 // @author       @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -13,7 +13,7 @@
 // @grant        GM_setValue
 // ==/UserScript==
 
-// Only run this code on the trade-history page (useful when included in a parent script)
+// Only run this code on the intended page(s) (useful when @required in a parent script)
 if(['/trade-history'].includes(window.location.pathname)) (function () {
   "use strict";
 

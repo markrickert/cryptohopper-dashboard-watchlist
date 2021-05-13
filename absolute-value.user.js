@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Absolute Values
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.2
+// @version      0.3
 // @description  Adds absolute value for your open positions after the percentage change.
 // @author       @eatsleepcoderepeat-gl, @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -11,7 +11,8 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 
-(function () {
+// Only run this code on the intended page(s) (useful when @required in a parent script)
+if(['/dashboard'].includes(window.location.pathname)) (function () {
   "use strict";
 
   function addStyles() {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Coin Watchlist
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.11
+// @version      0.12
 // @description  Adds "watchlist" abilities to your Cryprohopper account! Select the new star icon to change the background of the coin you want to watch.
 // @author       @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -16,40 +16,42 @@
 // @grant        GM_deleteValue
 // ==/UserScript==
 
-// When enabled, will clear a watch target on doouobleclick.
-const EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR = false;
-
-// You can add and remove items from this list at will or change around the colors.
-// I have only tested font awesome icons (with the prefix "fa-").
-// You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
-const WATCHLIST_STATUSES = {
-  "fa-star-o": "transparent", // this is the default, outlined star.
-  "fa-star": "#ffcc00",
-  "fa-rocket": "#5856d6",
-  "fa-heart": "#06cc98",
-  "fa-question-circle": "#ff9500",
-  "fa-exclamation-circle": "#5ac7fa",
-  "fa-lock": "#f6887d",
-  "fa-bitcoin":
-    "linear-gradient(to right, rgba(179,143,0, 0.2), rgba(255, 204, 0, 0.2), rgba(179,143,0, 0.2))",
-  "fa-trash": "#000000",
-  "fa-reddit-alien":
-    "linear-gradient(-45deg, #ee775233, #e73c7e33, #23a6d533, #23d5ab33);",
-  "fa-magic":
-    "linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 127, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(139, 0, 255, 0.2))",
-};
-
-/**
- * Application
- * Please read through this and understand what it is doing before running.
- */
-
-const WATCHLIST_CSS_PREFIX = "watchlist_"; // so we know which columns are ours
-const CURRENCY_TABLE = "table:contains('Currency'):contains('Action')";
-const classes = Object.keys(WATCHLIST_STATUSES);
-
-(function () {
+// Only run this code on the intended page(s) (useful when @required in a parent script)
+if(['/dashboard','/trade-history'].includes(window.location.pathname)) (function () {
   "use strict";
+
+  // When enabled, will clear a watch target on doubleclick.
+  const EXPERIMENTAL_DOUBLE_CLICK_TO_CLEAR = false;
+
+  // You can add and remove items from this list at will or change around the colors.
+  // I have only tested font awesome icons (with the prefix "fa-").
+  // You should be able to use any of the icons listed here: https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
+  const WATCHLIST_STATUSES = {
+    "fa-star-o": "transparent", // this is the default, outlined star.
+    "fa-star": "#ffcc00",
+    "fa-rocket": "#5856d6",
+    "fa-heart": "#06cc98",
+    "fa-question-circle": "#ff9500",
+    "fa-exclamation-circle": "#5ac7fa",
+    "fa-lock": "#f6887d",
+    "fa-bitcoin":
+      "linear-gradient(to right, rgba(179,143,0, 0.2), rgba(255, 204, 0, 0.2), rgba(179,143,0, 0.2))",
+    "fa-trash": "#000000",
+    "fa-reddit-alien":
+      "linear-gradient(-45deg, #ee775233, #e73c7e33, #23a6d533, #23d5ab33);",
+    "fa-magic":
+      "linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 127, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 0, 255, 0.2), rgba(139, 0, 255, 0.2))",
+  };
+
+  /**
+   * Application
+   * Please read through this and understand what it is doing before running.
+   */
+
+  const WATCHLIST_CSS_PREFIX = "watchlist_"; // so we know which columns are ours
+  const CURRENCY_TABLE = "table:contains('Currency'):contains('Action')";
+  const classes = Object.keys(WATCHLIST_STATUSES);
+
   // This completely refreshes the color of all the matching rows to what is set in memory.
   function refreshColors() {
     const allWatchlist = GM_listValues();
