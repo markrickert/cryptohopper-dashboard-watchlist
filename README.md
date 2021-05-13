@@ -126,7 +126,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 > This browser extension is needed in order to install the below scripts
 
 * [`Chrome`](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-* [`Firefox`](https://addons.mozilla.org/en-CA/firefox/addon/tampermonkey/)
+* [`Firefox`](https://addons.mozilla.org/firefox/addon/tampermonkey/)
 
 > If you already have Tampermonkey installed and know what you're dong:
 
