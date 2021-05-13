@@ -12,7 +12,7 @@ Cryptohopper is an algorithmic trading platform that interfaces with your crypto
 
 The Cryptohopper service is amazing! It has almost become an obsession of mine to watch the bot buy and sell all day long. Being a lifelong tweaker and optimizer, natually, I wanted to enhance the site with a few customizations that tailored my experience.
 
-I created a few of these scripts for personal use, and after sharing a few screenshots online I started getting requests for how others could do the same thing, leading me to make this project.
+I created some of these scripts for personal use, and after sharing a few screenshots online I started getting requests for how others could do the same thing, leading me to make this project.
 
 Since then multiple community members have contributed tweaks, fixes, testing efforts, and even entirely new scripts! I hope this repo can become a trusted community resource for those wishing to fine-tune their user experience in different ways.
 
@@ -38,6 +38,8 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 
 ## absolute-value.user.js
+
+> By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
 * Adds an absolute value next to the percentage change on your open positions table.
 
@@ -67,6 +69,8 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 ## target-restore.user.js
 
+> By [@henrygarle](https://github.com/henrygarle) (FaceWound on Discord)
+
 * Restores targets list to match functionality removed on 2021-05-11. Any targets that would be shown by the default UI are shown in green, any that would normally be hidden are displayed in orange.
 
 |||
@@ -84,6 +88,8 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 ## multi-select.user.js
 
+> By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
+
 * Adds shift+click functionality for position checkboxes to allow selecting all positions of the same coin/token at once.
 
 ---
@@ -100,7 +106,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 ### Quick install links:
 
-> if you already have TamperMonkey installed and know what you're dong.
+> If you already have TamperMonkey installed and know what you're dong:
 
 * [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
 * [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
@@ -113,7 +119,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 # Donate
 
-If you enjoy using these scripts and would like to donate you can tip me with the Brave Browser in BAT or send to any of these addresses:
+If you enjoy using these scripts and would like to donate to help fund further development you can tip with the Brave Browser in BAT or send to any of these addresses:
 
 > BAT: 0x23d89970B883DEA62e74AeFdf5B0d739e91A0292
 
@@ -132,6 +138,11 @@ If you enjoy using these scripts and would like to donate you can tip me with th
 # Contributing
 
 New ideas are always welcome! Please open a github ticket with your idea and maybe we can make it a reality! Contributions and pull requests are always welcome!
+
+## Core Contributors:
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ---
 
