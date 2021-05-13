@@ -95,6 +95,12 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 * Adds shift+click functionality for position checkboxes to allow selecting all positions of the same coin/token at once.
 
+## export-saved-trade-history.user.js
+
+> By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
+
+* Adds single-click export functionality to the trade history page using the saved settings (after saving at least once), and allows for saving and loading export settings. The author of this script finds it useful to set the *to* part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
+
 ---
 
 # Installation:
@@ -119,6 +125,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * [`remove-hoppie.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/remove-hoppie.user.js)
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
 * [`multi-select.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/multi-select.user.js)
+* [`export-saved-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-saved-trade-history.user.js)
 
 # Donate
 
