@@ -38,20 +38,22 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
   
   // This function sets our CSS
   function setStyles() {
-    GM_addStyle(
-      'button' + EXPORT_BUTTON_NAME + 
-      ',button' + SAVE_BUTTON_NAME + 
-      '{ margin-right: 3px; }' + 
-      'button' + LOAD_BUTTON_NAME + 
-      '{ margin-right: 2px; }'
-    );
+    GM_addStyle(`
+      button${EXPORT_BUTTON_NAME},
+      button${SAVE_BUTTON_NAME} {
+        margin-right: 3px;
+      }
+      button${LOAD_BUTTON_NAME} {
+        margin-right: 2px;
+      }
+    `);
   }
 
   // This function adds the Export Saved button and handles click events
   function exportButtonHandler() {
     if(!$(EXPORT_BUTTON_NAME).length && GM_getValue(EXPORT_KEY,false) !== false) {
       // Add the Export Saved button
-      $(`button[onclick="jQuery('#exportDiv').toggle()"]`).before('<button id="' + EXPORT_BUTTON_NAME.replace('#','') + '" type="button" class="' + BUTTON_PRIMARY_CLASS + '"><i class="fa fa-download m-r-5"></i> Export Saved</button>');
+      $(`button[onclick="jQuery('#exportDiv').toggle()"]`).before(`<button type="button" id="${EXPORT_BUTTON_NAME.replace('#','')}" class="${BUTTON_PRIMARY_CLASS}"><i class="fa fa-download m-r-5"></i> Export Saved</button>`);
       
       // Handle clicks of the Export Saved button
       $(EXPORT_BUTTON_NAME).on('click',function() {
@@ -67,7 +69,7 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
   // This function saves the current settings when exporting
   function saveSettingsButtonHandler() {
     // Add the Save Settings button
-    $('button[onclick="startExport()"]').before('<button id="' + SAVE_BUTTON_NAME.replace('#','') + '" type="button" class="' + BUTTON_PRIMARY_CLASS + '">Save Settings</button>');
+    $('button[onclick="startExport()"]').before(`<button type="button" id="${SAVE_BUTTON_NAME.replace('#','')}" class="${BUTTON_PRIMARY_CLASS}">Save Settings</button>`);
 
     // Handle clicks of the Save Settings button
     $(SAVE_BUTTON_NAME).on('click',function() {
@@ -79,7 +81,7 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
       // Save these values for future use
       GM_setValue(EXPORT_KEY,JSON.stringify({'format':format,'buys':buys,'sells':sells,'daterange':daterange}));
 
-      // If this is the first time saving, add the Export Saved button
+      // If this is the first time saving, add the Export Saved and Load Settings buttons
       if(!buttonsAdded) {
         exportButtonHandler();
         loadSettingsButtonHandler();
@@ -90,10 +92,10 @@ if(['/trade-history'].includes(window.location.pathname)) (function () {
   // This function loads the currently saved settings
   function loadSettingsButtonHandler() {
     if(!$(LOAD_BUTTON_NAME).length && GM_getValue(EXPORT_KEY,false) !== false) {
-      // Add the Load Saved button
-      $(SAVE_BUTTON_NAME).before('<button id="' + LOAD_BUTTON_NAME.replace('#','') + '" type="button" class="' + BUTTON_SECONDARY_CLASS + '">Load Saved</button>');
+      // Add the Load Settings button
+      $(SAVE_BUTTON_NAME).before(`<button type="button" id="${LOAD_BUTTON_NAME.replace('#','')}" class="${BUTTON_SECONDARY_CLASS}">Load Settings</button>`);
 
-      // Handle clicks of the Load Saved button
+      // Handle clicks of the Load Settings button
       $(LOAD_BUTTON_NAME).on('click',loadSavedSettings);
 
       buttonsAdded = true;
