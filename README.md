@@ -31,7 +31,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 > By [@markrickert](https://github.com/markrickert) and [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
-* This is a master script, provided for user convenience, which will install all other scripts available at the time of installation. If auto update is enabled, this will also keep all other scripts up to date as well and will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to manually install individual scripts; any other installed scripts from this project should be uninstalled prior to installing this script.*
+* The one script to rule them all. This is a master script, provided for user convenience, which will install all other scripts available at the time of installation. If auto update is enabled, this will also keep all other scripts up to date as well and will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to manually install individual scripts; any other installed scripts from this project should be uninstalled prior to installing this script.*
 
 ## coin-watchlist.user.js
 
@@ -121,7 +121,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 ### Quick install links:
 
-> If you already have TamperMonkey installed and know what you're dong:
+> If you already have Tampermonkey installed and know what you're dong:
 
 #### All in one master script:
 * [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts prior to installing this.*
@@ -136,6 +136,11 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
 * [`multi-select.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/multi-select.user.js)
 * [`export-saved-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-saved-trade-history.user.js)
+
+### Tampermonkey:
+
+* [`Chrome`](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+* [`Firefox`](https://addons.mozilla.org/en-CA/firefox/addon/tampermonkey/)
 
 # Donate
 
