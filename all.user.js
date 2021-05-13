@@ -3,7 +3,7 @@
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @version      0.1
 // @description  The one script to rule them all.
-// @author       @markrickert
+// @author       @markrickert, @eatsleepcoderepeat-gl, @henrygarle
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/eatsleepcoderepeat-gl/cryptohopper-dashboard-watchlist/raw/dev/master-script/all.user.js
 // @match        https://www.cryptohopper.com/*
