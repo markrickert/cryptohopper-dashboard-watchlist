@@ -11,18 +11,23 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 
-(function () {
-  "use strict";
+try {
+  (function () {
+    "use strict";
 
-  function removeHoppie() {
-    GM_addStyle(`
-      img.hoppie-paperclip,
-      img.hoppiePaperclipAnimation,
-      div.hoppie-speech-container {
-        display: none !important;
-      }
-    `);
-  }
+    function removeHoppie() {
+      GM_addStyle(`
+        img.hoppie-paperclip,
+        img.hoppiePaperclipAnimation,
+        div.hoppie-speech-container {
+          display: none !important;
+        }
+      `);
+    }
 
-  jQuery(() => removeHoppie());
-})();
+    jQuery(() => removeHoppie());
+  })();
+}
+catch(err) {
+  console.log(`Error in script remove-hoppie.user.js: ${err.name}: ${err.message}`);
+}
