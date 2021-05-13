@@ -55,6 +55,7 @@
 
         const output = `${activeOutput}<span class="text-warning">${inactiveOutput}</span>`;
         let spinnerClass = activeOutput ? "text-success" : "text-warning";
+
         // Set the target list
         jQuery("#current_target_coin")
           .fadeOut(100)

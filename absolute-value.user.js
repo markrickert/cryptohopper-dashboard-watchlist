@@ -3,7 +3,7 @@
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @version      0.2
 // @description  Adds absolute value for your open positions after the percentage change.
-// @author       @markrickert, @eatsleepcoderepeat-gl
+// @author       @eatsleepcoderepeat-gl, @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js
 // @match        https://www.cryptohopper.com/dashboard
