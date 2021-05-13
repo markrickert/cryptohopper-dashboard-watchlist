@@ -31,7 +31,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 > By [@markrickert](https://github.com/markrickert) and [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
-* This is a master script, provided for user convenience, which will install all other scripts available at the time of installation. If auto update is enabled, this will also keep all other scripts up to date as well and will add any new features (scripts) automatically. If using this, there's no need to manually install individual scripts.
+* This is a master script, provided for user convenience, which will install all other scripts available at the time of installation. If auto update is enabled, this will also keep all other scripts up to date as well and will add any new features (scripts) automatically. ⚠️ If using this, there's no need to manually install individual scripts.
 
 ## coin-watchlist.user.js
 
@@ -124,7 +124,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 > If you already have TamperMonkey installed and know what you're dong:
 
 #### All in one:
-* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) **NOTE:** *No need to install other scripts if using this one. Please uninstall all below scripts if using this.*
+* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts if using this.*
 
 #### Individual scripts:
 * [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
