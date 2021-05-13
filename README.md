@@ -27,6 +27,12 @@ You are responsible for the code you run on your own computer. By downloading an
 
 Cryptohopper may change their website at any moment, causing one or all of these scripts to cease functioning.
 
+## all.user.js
+
+> By [@markrickert](https://github.com/markrickert) and [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
+
+* This is a master script, provided for user convenience, which will install all other scripts available at the time of installation. If auto update is enabled, this will also keep all other scripts up to date as well and will add any new features (scripts) automatically.
+
 ## coin-watchlist.user.js
 
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard or mark coins that are part of a custom config pool.
@@ -105,7 +111,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 # Installation:
 
-1. Select a the user script you want from this repository.
+1. Select a user script you want from this repository.
 1. Read through the script and familiarize yourself with the code. Make sure you understand what it does before you install it!
 1. Click the "Raw" button and your browser extension should ask you to install it.
 1. Navigate to your Cryptohopper dashboard.
@@ -117,6 +123,10 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 > If you already have TamperMonkey installed and know what you're dong:
 
+#### All in one:
+* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js)
+
+#### Individual scripts:
 * [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
 * [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
 * [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.js)
