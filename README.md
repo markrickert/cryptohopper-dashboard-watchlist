@@ -123,7 +123,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 #### Tampermonkey:
 
-> A userscript browser extension is needed in order to install the below scripts, such as [Tampermonkey](https://www.tampermonkey.net/)
+> A userscript browser extension is needed in order to install the below scripts, such as [Tampermonkey](https://www.tampermonkey.net/):
 
 * [`Chrome`](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 * [`Firefox`](https://addons.mozilla.org/firefox/addon/tampermonkey/)
