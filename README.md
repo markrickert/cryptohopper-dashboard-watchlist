@@ -29,7 +29,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 ## all.user.js
 
-> By [@markrickert](https://github.com/markrickert) and [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
+> By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord) and [@markrickert](https://github.com/markrickert)
 
 * The one script to rule them all. This is a master script, provided for user convenience, which will install all other scripts available at the time of installation. If auto update is enabled, this will also keep all other scripts up to date as well and will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to manually install individual scripts; any other installed scripts from this project should be uninstalled prior to installing this script.*
 
