@@ -76,7 +76,9 @@ You are responsible for the code you run on your own computer. By downloading an
 
 ## export-saved-trade-history.user.js
 
-* Adds new functionality to the trade history page that allows saving and loading export settings, and another that allows the user to export in a single click using the saved settings, after saving at least once. The author of this script finds it useful to set the *to* part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
+> By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
+
+* Adds new functionality to the trade history page that allows for single click exports using the saved settings (after saving at least once), and allows for saving and loading export settings. The author of this script finds it useful to set the *to* part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
 
 ---
 
