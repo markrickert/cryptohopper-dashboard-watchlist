@@ -121,12 +121,21 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 ### Quick install links:
 
+#### Tampermonkey:
+
+> This browser extension is needed in order to install the below scripts
+
+* [`Chrome`](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+* [`Firefox`](https://addons.mozilla.org/en-CA/firefox/addon/tampermonkey/)
+
 > If you already have Tampermonkey installed and know what you're dong:
 
 #### All in one master script:
+
 * [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts prior to installing this.*
 
 #### Individual scripts:
+
 * [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
 * [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
 * [`chart-mods.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/chart-mods.user.js)
@@ -136,13 +145,6 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
 * [`multi-select.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/multi-select.user.js)
 * [`export-saved-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-saved-trade-history.user.js)
-
-### Tampermonkey:
-
-> This browser extension is needed in order to install the above scripts
-
-* [`Chrome`](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-* [`Firefox`](https://addons.mozilla.org/en-CA/firefox/addon/tampermonkey/)
 
 # Donate
 
