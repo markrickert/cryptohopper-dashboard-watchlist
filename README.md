@@ -64,7 +64,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 :-:|:-:
 ![](images/chart-mods-light.png)  |  ![](images/chart-mods-dark.png)
 
-> Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
+> Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url. To switch the chart souce, edit the setting under [profile](https://www.cryptohopper.com/edit-profile) > Settings > Chart source.
 
 ## position-targets.user.js
 
