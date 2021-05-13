@@ -124,7 +124,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 > If you already have TamperMonkey installed and know what you're dong:
 
 #### All in one master script:
-* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts if using this.*
+* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts prior to installing this.*
 
 #### Individual scripts:
 * [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
