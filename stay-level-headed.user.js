@@ -23,5 +23,5 @@ try {
 	})();
 }
 catch(err) {
-  console.log(`Error in script stay-level-headed.user.js: ${err.name}: ${err.message}`);
+	console.log(`Error in script stay-level-headed.user.js: ${err.name}: ${err.message}`);
 }
