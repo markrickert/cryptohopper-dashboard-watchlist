@@ -123,10 +123,16 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 #### Tampermonkey:
 
-> This browser extension is needed in order to install the below scripts
+> A userscript browser extension is needed in order to install the below scripts, such as ['Tampermonkey'](https://www.tampermonkey.net/)
 
 * [`Chrome`](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 * [`Firefox`](https://addons.mozilla.org/firefox/addon/tampermonkey/)
+* [`Safari 12+`](https://apps.apple.com/app/apple-store/id1482490089?pt=117945903&ct=tm.net)
+* [`Safari 6-11`](https://safari.tampermonkey.net/tampermonkey.safariextz)
+* [`Opera Next`](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+* [`Dolphin Browser`](https://play.google.com/store/apps/details?id=net.tampermonkey.dolphin)
+* [`UC Browser`](https://play.google.com/store/apps/details?id=net.tampermonkey.uc)
+* [`Edge`](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
 > If you already have Tampermonkey installed and know what you're dong:
 
