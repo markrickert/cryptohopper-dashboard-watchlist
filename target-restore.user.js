@@ -19,7 +19,6 @@ try {
       const response = JSON.parse(xhr.responseText);
       if (response.data && response.data.ta_values) {
         const { new_target, ta_values } = response.data;
-
         // KVP of targets, true/false donates "active"
         // "Active" targets are those which the default UI would still show even after the change
         let targets = {};
@@ -41,21 +40,23 @@ try {
 
         let targetKeys = Object.keys(targets);
         if (targetKeys.length > 0) {
-          let inactiveOutput = "";
-          let activeOutput = "";
+
+        	let inactiveTargets = [];
+        	let activeTargets = [];
+
           targetKeys.forEach((target, index) => {
             if (targets[target]) {
-              activeOutput += `${target}`;
-              if (index < targetKeys.length - 1) activeOutput += ", ";
+            	activeTargets.push(target);
             } else {
-              inactiveOutput += `${target}`;
-              if (index < targetKeys.length - 1) inactiveOutput += ", ";
+            	inactiveTargets.push(target)
             }
           });
 
-          let spinnerClass = activeOutput ? "text-success" : "text-warning";
+          let activeOutput = activeTargets.length ? activeTargets.reduce((acc, x, index) => inactiveTargets.length && index == activeTargets.length - 1 ? `${acc}, ${x}, ` : `${acc}, ${x}`) : "";
+          let inactiveOutput = inactiveTargets.length ? inactiveTargets.reduce((acc, x, index) => `${acc}, ${x}`) : "";
 
           const output = `${activeOutput}<span class="text-warning">${inactiveOutput}</span>`;
+          let spinnerClass = activeOutput ? "text-success" : "text-warning";
 
           // Set the target list
           jQuery("#current_target_coin")
