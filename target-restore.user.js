@@ -52,11 +52,8 @@ try {
             }
           });
 
-          let activeOutput = activeTargets.length ? activeTargets.reduce((acc, x, index) => inactiveTargets.length && index == activeTargets.length - 1 ? `${acc}, ${x}, ` : `${acc}, ${x}`) : "";
-          let inactiveOutput = inactiveTargets.length ? inactiveTargets.reduce((acc, x, index) => `${acc}, ${x}`) : "";
-
-          const output = `${activeOutput}<span class="text-warning">${inactiveOutput}</span>`;
-          let spinnerClass = activeOutput ? "text-success" : "text-warning";
+          const output = activeTargets.join(', ') + (inactiveTargets.length ? `, <span class="text-warning">${inactiveTargets.join(', ')}</span>` : '');
+          let spinnerClass = activeTargets.length ? "text-success" : "text-warning";
 
           // Set the target list
           jQuery("#current_target_coin")
