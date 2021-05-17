@@ -52,7 +52,7 @@ try {
             }
           });
 
-          const output = activeTargets.join(', ') + (inactiveTargets.length ? `, <span class="text-warning">${inactiveTargets.join(', ')}</span>` : '');
+          const output = activeTargets.join(', ') + (activeTargets.length && inactiveTargets.length ? ', ' : '') + (inactiveTargets.length ? `<span class="text-warning">${inactiveTargets.join(', ')}</span>` : '');
           let spinnerClass = activeTargets.length ? "text-success" : "text-warning";
 
           // Set the target list
