@@ -101,6 +101,11 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 * Adds single-click export functionality to the trade history page using the saved settings (after saving at least once), and allows for saving and loading export settings. The author of this script finds it useful to set the *to* part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
 
+## show-all-ai-results.js
+
+> By [@D051P0](https://github.com/d051p0)
+
+* Shows all training results in AI Results overview
 ---
 
 # Installation:
@@ -126,7 +131,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * [`stay-level-headed.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stay-level-headed.user.js)
 * [`multi-select.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/multi-select.user.js)
 * [`export-saved-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-saved-trade-history.user.js)
-
+* [`show-all-ai-results.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/show-all-ai-results.js)
 # Donate
 
 If you enjoy using these scripts and would like to donate to help fund further development you can tip with the Brave Browser in BAT or send to any of these addresses:
