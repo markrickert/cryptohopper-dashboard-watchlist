@@ -43,7 +43,7 @@
     var netProfitPct = netProfit/startBalance*100;
     var positionsPct = positions/startBalance*100;
     var grossProfitPct = grossProfit/startBalance*100;
-    var baseAvail = $(`#current_assets_table > tbody > tr:contains('${base}') > td:nth-child(2) > b`).text();
+    var baseAvail = $(`#current_assets_table > tbody > tr > td:nth-child(1) > b`).filter(function(){return $(this).text() == base}).closest("tr").children().eq(1).text();
     var baseAvailPct = baseAvail/totalBalance*100;
 
     jQuery("#detail_total_gross").text(grossProfit.toFixed(2));
