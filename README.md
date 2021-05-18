@@ -27,6 +27,12 @@ You are responsible for the code you run on your own computer. By downloading an
 
 Cryptohopper may change their website at any moment, causing one or all of these scripts to cease functioning.
 
+## all.user.js
+
+> By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
+
+* The one script to rule them all. This is a master script, provided for user convenience, which will load all other scripts available at the time of installation. This will also keep all other loaded scripts from this project up to date as well and if auto update is enabled, will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to manually install individual scripts; any other installed scripts from this project should be uninstalled prior to installing this script.*
+
 ## coin-watchlist.user.js
 
 * Allows you to track a coin by icon/color across all your hoppers. Highlight the losers or mark positions that are heavily dollar cost averaged to more easily visually identify them in your dashboard or mark coins that are part of a custom config pool.
@@ -58,7 +64,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 :-:|:-:
 ![](images/chart-mods-light.png)  |  ![](images/chart-mods-dark.png)
 
-> Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url.
+> Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url. *Enable this feature by switching to the default chart souce: [Profile](https://www.cryptohopper.com/edit-profile) > Settings > Chart source, and select the default option.*
 
 ## position-targets.user.js
 
@@ -105,7 +111,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 # Installation:
 
-1. Select a the user script you want from this repository.
+1. Select a user script you want from this repository.
 1. Read through the script and familiarize yourself with the code. Make sure you understand what it does before you install it!
 1. Click the "Raw" button and your browser extension should ask you to install it.
 1. Navigate to your Cryptohopper dashboard.
@@ -115,7 +121,26 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 ### Quick install links:
 
-> If you already have TamperMonkey installed and know what you're dong:
+#### Tampermonkey:
+
+> A userscript browser extension is needed in order to install the below scripts, such as [Tampermonkey](https://www.tampermonkey.net/):
+
+* [`Chrome`](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+* [`Firefox`](https://addons.mozilla.org/firefox/addon/tampermonkey/)
+* [`Safari 12+`](https://apps.apple.com/app/apple-store/id1482490089?pt=117945903&ct=tm.net)
+* [`Safari 6-11`](https://safari.tampermonkey.net/tampermonkey.safariextz)
+* [`Opera Next`](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+* [`Dolphin Browser`](https://play.google.com/store/apps/details?id=net.tampermonkey.dolphin)
+* [`UC Browser`](https://play.google.com/store/apps/details?id=net.tampermonkey.uc)
+* [`Edge`](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+
+> If you already have Tampermonkey installed and know what you're dong:
+
+#### All in one master script:
+
+* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts prior to installing this.*
+
+#### Individual scripts:
 
 * [`coin-watchlist.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/coin-watchlist.user.js)
 * [`absolute-value.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/absolute-value.user.js)
