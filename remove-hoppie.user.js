@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Hoppie Removal
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.2
+// @version      0.3
 // @description  Removes the image of "hoppie" sticking his arm out from the side of the page.
 // @author       @markrickert
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
