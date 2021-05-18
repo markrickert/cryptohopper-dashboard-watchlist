@@ -31,7 +31,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 > By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
-* The one script to rule them all. This is a master script, provided for user convenience, which will load all other scripts available at the time of installation. If auto update is enabled, this will also keep all other scripts up to date as well and will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to manually install individual scripts; any other installed scripts from this project should be uninstalled prior to installing this script.*
+* The one script to rule them all. This is a master script, provided for user convenience, which will load all other scripts available at the time of installation. This will also keep all other loaded scripts from this project up to date as well and if auto update is enabled, will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to manually install individual scripts; any other installed scripts from this project should be uninstalled prior to installing this script.*
 
 ## coin-watchlist.user.js
 
