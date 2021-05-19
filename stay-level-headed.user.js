@@ -12,16 +12,18 @@
 
 try {
   // Only run this code on the intended page(s) (useful when @required in a parent script)
-  if(['/dashboard'].includes(window.location.pathname)) (function () {
-    "use strict";
+  if (["/dashboard"].includes(window.location.pathname))
+    (function () {
+      "use strict";
 
-    function dontPanic() {
-      jQuery("div.card-box.widget-icon:has(button#panic-button)").hide();
-    }
+      function dontPanic() {
+        jQuery("div.card-box.widget-icon:has(button#panic-button)").hide();
+      }
 
-    jQuery(() => dontPanic());
-  })();
-}
-catch(err) {
-  console.log(`Error in script stay-level-headed.user.js: ${err.name}: ${err.message}`);
+      jQuery(() => dontPanic());
+    })();
+} catch (err) {
+  console.log(
+    `Error in script stay-level-headed.user.js: ${err.name}: ${err.message}`
+  );
 }

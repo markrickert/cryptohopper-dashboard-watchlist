@@ -13,11 +13,12 @@
 
 try {
   // Only run this code on the intended page(s) (useful when @required in a parent script)
-  if(['/dashboard'].includes(window.location.pathname)) (function () {
-    "use strict";
+  if (["/dashboard"].includes(window.location.pathname))
+    (function () {
+      "use strict";
 
-    function addStyles() {
-      GM_addStyle(`
+      function addStyles() {
+        GM_addStyle(`
         table.dataTable tr td.target-buy::after, table.dataTable tr td.target-sell::after {
           display: inline-block;
           font-style: normal;
@@ -36,53 +37,54 @@ try {
           color: #f6887d;
         }
       `);
-    }
+      }
 
-    function processResponse(event, xhr, settings) {
-      const response = JSON.parse(xhr.responseText);
-      if (response.data && response.data.ta_values) {
-        const { current_sells, ta_values } = response.data;
+      function processResponse(event, xhr, settings) {
+        const response = JSON.parse(xhr.responseText);
+        if (response.data && response.data.ta_values) {
+          const { current_sells, ta_values } = response.data;
 
-        const allCoinTDs = jQuery(
-          `table:contains('Currency'):contains('Action') tr td:has("a[data-target='.chart-modal'] strong")`
-        );
-        allCoinTDs.removeClass("target-buy target-sell");
+          const allCoinTDs = jQuery(
+            `table:contains('Currency'):contains('Action') tr td:has("a[data-target='.chart-modal'] strong")`
+          );
+          allCoinTDs.removeClass("target-buy target-sell");
 
-        if (current_sells && current_sells.length > 0) {
-          const sellTargets = current_sells.split(",");
-          allCoinTDs.each((i, td) => {
-            if (sellTargets.includes(td.innerText)) {
-              jQuery(td).addClass("target-sell");
-            }
-          });
-        }
+          if (current_sells && current_sells.length > 0) {
+            const sellTargets = current_sells.split(",");
+            allCoinTDs.each((i, td) => {
+              if (sellTargets.includes(td.innerText)) {
+                jQuery(td).addClass("target-sell");
+              }
+            });
+          }
 
-        let buyTargets = [];
-        for (const target in ta_values) {
-          if (ta_values[target].signals == "buy") buyTargets.push(target);
-        }
+          let buyTargets = [];
+          for (const target in ta_values) {
+            if (ta_values[target].signals == "buy") buyTargets.push(target);
+          }
 
-        if (buyTargets && buyTargets.length > 0) {
-          allCoinTDs.each((i, td) => {
-            if (buyTargets.includes(td.innerText)) {
-              jQuery(td).addClass("target-buy");
-            }
-          });
+          if (buyTargets && buyTargets.length > 0) {
+            allCoinTDs.each((i, td) => {
+              if (buyTargets.includes(td.innerText)) {
+                jQuery(td).addClass("target-buy");
+              }
+            });
+          }
         }
       }
-    }
 
-    // This function listens for network requests and intercepts the target list to turn their icon on and off.
-    function watchTargets() {
-      jQuery(document).ajaxComplete(processResponse);
-    }
+      // This function listens for network requests and intercepts the target list to turn their icon on and off.
+      function watchTargets() {
+        jQuery(document).ajaxComplete(processResponse);
+      }
 
-    jQuery(() => {
-      addStyles();
-      watchTargets();
-    });
-  })();
-}
-catch(err) {
-  console.log(`Error in script position-targets.user.js: ${err.name}: ${err.message}`);
+      jQuery(() => {
+        addStyles();
+        watchTargets();
+      });
+    })();
+} catch (err) {
+  console.log(
+    `Error in script position-targets.user.js: ${err.name}: ${err.message}`
+  );
 }
