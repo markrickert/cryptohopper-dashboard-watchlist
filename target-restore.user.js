@@ -71,6 +71,8 @@ try {
             .css("margin-top", "-10px")
             .fadeIn(100);
         }
+        // Reset spinner
+        else jQuery("#searching_target_spinner").removeClass('text-warning text-success');
       }
     }
 
