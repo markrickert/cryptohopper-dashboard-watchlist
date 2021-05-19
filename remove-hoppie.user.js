@@ -27,7 +27,8 @@ try {
 
     jQuery(() => removeHoppie());
   })();
-}
-catch(err) {
-  console.log(`Error in script remove-hoppie.user.js: ${err.name}: ${err.message}`);
+} catch (err) {
+  console.log(
+    `Error in script remove-hoppie.user.js: ${err.name}: ${err.message}`
+  );
 }
