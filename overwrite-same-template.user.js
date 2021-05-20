@@ -22,8 +22,10 @@ try {
 
         jQuery('[onclick="loadSlimscroll()"]').click(function() {
           var existingTemplate = jQuery(`div.radio label:contains(${hopperName})`);
+          // If there's a template that matches the name of the active template, select it as the overwrite target
           if(existingTemplate.length)
             existingTemplate.prev('input[type="radio"]').prop('checked',true);
+          // Otherwise select the save as new template option
           else {
             jQuery('#radio_asnew').prop('checked',true);
             jQuery('#saveasnew_template').show();
