@@ -6,13 +6,13 @@
 // @author       @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
 // @updateURL    https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/overwrite-same-template.user.js
-// @match        https://www.cryptohopper.com/config
+// @match        https://www.cryptohopper.com/config*
 // @icon         https://www.google.com/s2/favicons?domain=cryptohopper.com
 // ==/UserScript==
 
 try {
   // Only run this code on the intended page(s) (useful when @required in a parent script)
-  if (["/config"].includes(window.location.pathname))
+  if (["/config","/config/config-pools","/config/signals","/config/triggers"].includes(window.location.pathname))
     (function () {
       "use strict";
 
