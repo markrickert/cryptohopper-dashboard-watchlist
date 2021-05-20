@@ -111,7 +111,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 > By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
-* This script will automatically select the template with the same name as the currently active template for the overwrite target when saving a template. If a template of the same name does not yet exist, saving as a new template will be automatically selected. **Note:** *template names must be unique for this to function properly.*
+* This script will automatically select the template with the same name as the currently active configuration for the overwrite target when saving a template. If a template of the same name does not yet exist, saving as a new template will be automatically selected. **Note:** *template names must be unique for this to function properly.*
 
 ---
 
