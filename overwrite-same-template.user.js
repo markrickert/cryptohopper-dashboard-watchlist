@@ -19,19 +19,16 @@ try {
       function setOverwriteTarget() {
         var hopperMenu = $('#sidebar-menu>ul>li:first-of-type');
         var hopperName = $('>a>span:first-of-type',hopperMenu).text().trim();
+        var existingTemplate = jQuery(`#overwrite_template div.radio label:contains(${hopperName})`);
 
-        jQuery('[onclick="loadSlimscroll()"]').click(function() {
-          var existingTemplate = jQuery(`div.radio label:contains(${hopperName})`);
-          // If there's a template that matches the name of the active template, select it as the overwrite target
-          if(existingTemplate.length)
-            existingTemplate.prev('input[type="radio"]').prop('checked',true);
-          // Otherwise select the save as new template option
-          else {
-            jQuery('#radio_asnew').prop('checked',true);
-            jQuery('#saveasnew_template').show();
-            jQuery('#overwrite_template').hide();
-          }
-        });
+        // If there's a template that matches the name of the active template, select it as the overwrite target
+        if(existingTemplate.length)
+          existingTemplate.prev('input[type="radio"]').prop('checked',true);
+        // Otherwise select the save as new template option
+        else {
+          jQuery('#radio_asnew').prop('checked',true);
+          jQuery('#saveasnew_template,#overwrite_template').toggle();
+        }
       }
 
       jQuery(() => {
