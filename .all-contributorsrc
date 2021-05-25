@@ -26,8 +26,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/5577912?v=4",
       "profile": "https://github.com/HenryGarle",
       "contributions": [
-        "ideas",
-        "code"
+        "code",
+        "ideas"
       ]
     },
     {
@@ -35,6 +35,16 @@
       "name": "falcontx",
       "avatar_url": "https://avatars.githubusercontent.com/u/3753537?v=4",
       "profile": "https://github.com/falcontx",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "markrickert",
+      "name": "Mark Rickert",
+      "avatar_url": "https://avatars.githubusercontent.com/u/139261?v=4",
+      "profile": "http://www.otgapps.io/",
       "contributions": [
         "code"
       ]
