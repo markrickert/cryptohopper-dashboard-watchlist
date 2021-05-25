@@ -1,6 +1,6 @@
 # A Set of User Scripts to Customize your Cryptohopper Experience
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This is a collection of userscripts that run on [cryptohopper.com](https://www.cryptohopper.com/?atid=16750) to enhance your experience. Each userscript focuses on one tweak or feature and can be run independent of the others. Run them all or just a few!
@@ -113,6 +113,14 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 * This script will automatically select the template with the same name as the currently active configuration for the overwrite target when saving a template. If a template of the same name does not yet exist, saving as a new template will be automatically selected. **Note:** *template names must be unique for this to function properly.*
 
+## stats-detail.user.js
+
+> By [@falcontx](https://github.com/falcontx)
+
+* Generates more detailed stats on your dashboard.
+
+![](images/stats-detail.png)
+
 ---
 
 # Installation:
@@ -158,6 +166,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * [`multi-select.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/multi-select.user.js)
 * [`export-saved-trade-history.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/export-saved-trade-history.user.js)
 * [`overwrite-same-template.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/overwrite-same-template.user.js)
+* [`stats-detail.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/stats-detail.user.js)
 
 # Donate
 
@@ -192,6 +201,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/eatsleepcoderepeat-gl"><img src="https://avatars.githubusercontent.com/u/51761690?v=4?s=100" width="100px;" alt=""/><br /><sub><b>eatsleepcoderepeat-gl</b></sub></a><br /><a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=eatsleepcoderepeat-gl" title="Code">💻</a> <a href="#ideas-eatsleepcoderepeat-gl" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/HenryGarle"><img src="https://avatars.githubusercontent.com/u/5577912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>henrygarle</b></sub></a><br /><a href="#ideas-HenryGarle" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=HenryGarle" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/falcontx"><img src="https://avatars.githubusercontent.com/u/3753537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>falcontx</b></sub></a><br /><a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=falcontx" title="Code">💻</a></td>
   </tr>
 </table>
 
