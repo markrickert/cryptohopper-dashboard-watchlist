@@ -199,10 +199,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
+    <td align="center"><a href="http://www.otgapps.io/"><img src="https://avatars.githubusercontent.com/u/139261?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mark Rickert</b></sub></a><br /><a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=markrickert" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/eatsleepcoderepeat-gl"><img src="https://avatars.githubusercontent.com/u/51761690?v=4?s=100" width="100px;" alt=""/><br /><sub><b>eatsleepcoderepeat-gl</b></sub></a><br /><a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=eatsleepcoderepeat-gl" title="Code">💻</a> <a href="#ideas-eatsleepcoderepeat-gl" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/HenryGarle"><img src="https://avatars.githubusercontent.com/u/5577912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>henrygarle</b></sub></a><br /><a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=HenryGarle" title="Code">💻</a> <a href="#ideas-HenryGarle" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/falcontx"><img src="https://avatars.githubusercontent.com/u/3753537?v=4?s=100" width="100px;" alt=""/><br /><sub><b>falcontx</b></sub></a><br /><a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=falcontx" title="Code">💻</a> <a href="#ideas-falcontx" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://www.otgapps.io/"><img src="https://avatars.githubusercontent.com/u/139261?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mark Rickert</b></sub></a><br /><a href="https://github.com/markrickert/cryptohopper-dashboard-watchlist/commits?author=markrickert" title="Code">💻</a></td>
   </tr>
 </table>
 

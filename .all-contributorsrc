@@ -11,6 +11,15 @@
   "commitConvention": "none",
   "contributors": [
     {
+      "login": "markrickert",
+      "name": "Mark Rickert",
+      "avatar_url": "https://avatars.githubusercontent.com/u/139261?v=4",
+      "profile": "http://www.otgapps.io/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "eatsleepcoderepeat-gl",
       "name": "eatsleepcoderepeat-gl",
       "avatar_url": "https://avatars.githubusercontent.com/u/51761690?v=4",
@@ -38,15 +47,6 @@
       "contributions": [
         "code",
         "ideas"
-      ]
-    },
-    {
-      "login": "markrickert",
-      "name": "Mark Rickert",
-      "avatar_url": "https://avatars.githubusercontent.com/u/139261?v=4",
-      "profile": "http://www.otgapps.io/",
-      "contributions": [
-        "code"
       ]
     }
   ],

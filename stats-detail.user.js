@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Stats Detail
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.11
+// @version      0.1
 // @description  Adds additional profit detail and base currency balance to the stats box
 // @author       @falcontx
 // @match        https://www.cryptohopper.com/dashboard
