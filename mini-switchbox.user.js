@@ -15,6 +15,6 @@
     jQuery("#component_content > div:nth-child(4) > div.col-lg-4 > div:nth-child(4)").css("zoom", "0.9").prop('id', 'switchbox').css("padding-bottom", "5px");;
     jQuery("#switchbox > div").css("display", "inline-block").css("margin-bottom", "15px");
     jQuery("#switchbox > hr").css("display", "none");
-    jQuery(".widget-icon > .wid-icon-info").css("margin-left", "auto");
+    jQuery("#switchbox > div > .wid-icon-info").css("margin-left", "auto");
     jQuery("#switchbox > div > .md").css("margin-right", "5px");
 })();
