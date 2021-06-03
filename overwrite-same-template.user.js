@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cryptohopper Overwrite Same Template
 // @namespace    https://github.com/markrickert/cryptohopper-dashboard-watchlist
-// @version      0.1
+// @version      0.2
 // @description  This script will automatically select the template with the same name as the currently active configuration for the overwrite target when saving a template. If a template of the same name does not yet exist, saving as a new template will be automatically selected. Note: template names must be unique for this to function properly.
 // @author       @eatsleepcoderepeat-gl
 // @homepage     https://github.com/markrickert/cryptohopper-dashboard-watchlist
@@ -23,7 +23,12 @@ try {
 
         // If there's a template that matches the name of the active template, select it as the overwrite target
         if(existingTemplate.length)
-          existingTemplate.prev('input[type="radio"]').prop('checked',true);
+          existingTemplate.each(function() {
+            if(jQuery(this).text().trim().replace('Template of ','') == hopperName) {
+              jQuery(this).prev('input[type="radio"]').prop('checked',true);
+              return true;
+            }
+          });
         // Otherwise select the save as new template option
         else {
           jQuery('#radio_asnew').prop('checked',true);
