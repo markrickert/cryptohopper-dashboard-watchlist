@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-This is a collection of userscripts that run on [cryptohopper.com](https://www.cryptohopper.com/?atid=16750) to enhance your experience. Each userscript focuses on one tweak or feature and can be run independent of the others. Run them all or just a few!
+This is a collection of userscripts that run on [cryptohopper.com](https://www.cryptohopper.com/?atid=16750) to enhance your experience. Each userscript focuses on one tweak or feature and can be run independently of the others. Run them all or just a few!
 
 **What Is Cryptohopper?**
 
@@ -13,25 +13,25 @@ Cryptohopper is an algorithmic trading platform that interfaces with your crypto
 
 **Motivation**
 
-The Cryptohopper service is amazing! It has almost become an obsession of mine to watch the bot buy and sell all day long. Being a lifelong tweaker and optimizer, natually, I wanted to enhance the site with a few customizations that tailored my experience.
+The Cryptohopper service is amazing! It has almost become an obsession of mine to watch the bot buy and sell all day long. Being a lifelong tweaker and optimizer, naturally, I wanted to enhance the site with a few customizations that tailored my experience.
 
-I created some of these scripts for personal use, and after sharing a few screenshots online I started getting requests for how others could do the same thing, leading me to make this project.
+I created some of these scripts for personal use, and after sharing a few screenshots online, I started getting requests for how others could do the same thing, leading me to do this project.
 
-Since then multiple community members have contributed tweaks, fixes, testing efforts, and even entirely new scripts! I hope this repo can become a trusted community resource for those wishing to fine-tune their user experience in different ways.
+Since then, multiple community members have contributed tweaks, fixes, testing efforts, and even entirely new scripts! I hope this repo can become a trusted community resource for those wishing to fine-tune their user-experience differently.
 
 ## ⚠️ Security implications: ⚠️
 
 > These scripts manipulate elements on a financial site while you are logged in. Please read and understand what the code is doing before you run it!
 
-You are responsible for the code you run on your own computer. By downloading and executing this script you take responsibility for anything it may do, so please read and understand the code *before* installing it.
+You are responsible for the code you run on your computer. By downloading and executing this script, you take responsibility for anything it may do, so please read and understand the code *before* installing it.
 
-Cryptohopper may change their website at any moment, causing one or all of these scripts to cease functioning.
+Cryptohopper may change its website at any moment, causing one or all of these scripts to cease functioning.
 
 ## all.user.js
 
 > By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
-* The one script to rule them all. This is a master script, provided for user convenience, which will load all other scripts available at the time of installation. This will also keep all other loaded scripts from this project up to date as well and if auto update is enabled, will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to manually install individual scripts; any other installed scripts from this project should be uninstalled prior to installing this script.*
+* The one script to rule them all. This master script, provided for user convenience, will load all other scripts available at the time of installation. This will also keep all other loaded scripts from this project up to date as well, and if auto-update is enabled, it will add any new features (scripts) automatically. ⚠️ *If using this, there's no need to install individual scripts manually; You should uninstall any other installed scripts from this project before installing this script.*
 
 ## coin-watchlist.user.js
 
@@ -39,7 +39,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * Clear individual coin watches by cycling through the list in the Open Positions table.
 * Clear all watchlist colors by clicking the `X` at the top of the new watchlist column.
 * Adds row colors to the Last 5 Sells table and the trade history page.
-* Looks great in light and dark mode!
+* Looks outstanding in light and dark mode!
 
 |||
 :-:|:-:
@@ -64,7 +64,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 :-:|:-:
 ![](images/chart-mods-light.png)  |  ![](images/chart-mods-dark.png)
 
-> Note: Some users are served the chart on `chart/chart_tradingview.php` and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` url. *Enable this feature by switching to the default chart souce: [Profile](https://www.cryptohopper.com/edit-profile) > Settings > Chart source, and select the default option.*
+> Note: Some users are served the chart on `chart/chart_tradingview.php`, and this script will not work if your charts are loaded from there. It will only work on the `chart/chart.php` URL. *Enable this feature by switching to the default chart source: [Profile](https://www.cryptohopper.com/edit-profile) > Settings > Chart source, and select the default option.*
 
 ## position-targets.user.js
 
@@ -80,7 +80,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 > By [@henrygarle](https://github.com/henrygarle) (FaceWound on Discord)
 
-* Restores targets list to match functionality removed on 2021-05-11. Any targets that would be shown by the default UI are shown in green, any that would normally be hidden are displayed in orange.
+* Restores targets list to match functionality removed on 2021-05-11. Any targets shown by the default UI are shown in green. Any that it would generally hide are displayed in orange.
 
 |||
 :-:|:-:
@@ -105,13 +105,13 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 > By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
-* Adds single-click export functionality to the trade history page using the saved settings (after saving at least once), and allows for saving and loading export settings. The author of this script finds it useful to set the *to* part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
+* Adds single-click export functionality to the trade history page using the saved settings (after saving at least once) and allows for saving and loading export settings. The author of this script finds it helpful to set the *to* part of the date range to sometime in the future when using this functionality, such as 01/01/2030 12:00 AM.
 
 ## overwrite-same-template.user.js
 
 > By [@eatsleepcoderepeat-gl](https://github.com/eatsleepcoderepeat-gl) (Xerahn on Discord)
 
-* This script will automatically select the template with the same name as the currently active configuration for the overwrite target when saving a template. If a template of the same name does not yet exist, saving as a new template will be automatically selected. **Note:** *template names must be unique for this to function properly.*
+* This script will automatically select the template with the same name as the currently active configuration for the overwrite target when saving a template. If a template of the same name does not exist, save as a new template will be automatically selected. **Note:** *template names must be unique for this to function properly.*
 
 ## stats-detail.user.js
 
@@ -127,7 +127,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 1. Select a user script you want from this repository.
 1. Read through the script and familiarize yourself with the code. Make sure you understand what it does before you install it!
-1. Click the "Raw" button and your browser extension should ask you to install it.
+1. Click the "Raw" button, and your browser extension should ask you to install it.
 1. Navigate to your Cryptohopper dashboard.
 1. 🤖💰🚀🌖
 1. ...
@@ -148,11 +148,11 @@ Cryptohopper may change their website at any moment, causing one or all of these
 * [`UC Browser`](https://play.google.com/store/apps/details?id=net.tampermonkey.uc)
 * [`Edge`](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
-> If you already have Tampermonkey installed and know what you're dong:
+> If you already have Tampermonkey installed and knew what you're doing:
 
 #### All in one master script:
 
-* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts prior to installing this.*
+* [`all.user.js`](https://github.com/markrickert/cryptohopper-dashboard-watchlist/raw/main/all.user.js) ⚠️ *No need to install other scripts if using this one. Please uninstall all below scripts before installing this.*
 
 #### Individual scripts:
 
@@ -170,7 +170,7 @@ Cryptohopper may change their website at any moment, causing one or all of these
 
 # Donate
 
-If you enjoy using these scripts and would like to donate to help fund further development you can tip with the Brave Browser in BAT or send to any of these addresses:
+If you enjoy using these scripts and would like to donate to help fund further development, you can tip with the Brave Browser in BAT or send to any of these addresses:
 
 > BAT: 0x23d89970B883DEA62e74AeFdf5B0d739e91A0292
 
@@ -188,7 +188,7 @@ If you enjoy using these scripts and would like to donate to help fund further d
 
 # Contributing
 
-New ideas are always welcome! Please open a github ticket with your idea and maybe we can make it a reality! Contributions and pull requests are always welcome!
+New ideas are always welcome! Please open a GitHub ticket with your idea, and maybe we can make it a reality! Contributions and pull requests are always welcome!
 
 ## Contributors ✨
 
@@ -211,9 +211,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
 ---
 
-> This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Cryptohopper.com, or any of its subsidiaries or its affiliates.
+> This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Cryptohopper.com or any of its subsidiaries or its affiliates.
 
-> The Cryptohopper name as well as related marks, emblems and images are registered trademarks of Cryptohopper.com.
+> The Cryptohopper name and related marks, emblems, and images are registered trademarks of Cryptohopper.com.
